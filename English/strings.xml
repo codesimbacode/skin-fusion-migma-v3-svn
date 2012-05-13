@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<strings>
+
+  <string id="31000"></string>
+  <string id="31001">Recently Added</string>
+  <string id="31002">Plugins</string> 
+  
+  <string id="31003">By Year</string>
+  <string id="31004">By Genre</string>
+  <string id="31005">By Artist</string>
+  <string id="31006">By Album</string>
+  <string id="31007">By Song</string>
+  <string id="31008">By Actor</string> 
+  <string id="31009">By Director</string>
+  <string id="31010">By Studio</string>
+  <string id="31011">By Set</string>
+  <string id="31012">By Country</string>
+  <string id="31013">Compilations</string>
+  <string id="31014">Singles</string>
+  <string id="31015">By Network</string>
+  <string id="31016">HD Movies</string>
+  <string id="31017">Surround Sound</string>
+  <string id="31018">Widescreen</string>
+  <string id="31019">In Progress...</string>
+      
+  <string id="31050"> Songs</string>
+  <string id="31051"> Albums</string>
+  
+  <string id="31350">YOUR CURRENT WEATHER CONDITIONS</string>		
+  <string id="31351">TEMP</string>		
+  <string id="31352">FEELS LIKE</string>		
+  <string id="31353">DEW POINT</string>		
+  <string id="31354">HUMIDITY</string>		
+  <string id="31355">UV INDEX</string>		
+  <string id="31356">WIND</string>		
+  <string id="31357">HIGH</string>		
+  <string id="31358">LOW</string>
+  
+  <!-- DialogAlbumInfo.XML AND DialogVideoInfo.XML -->
+  <string id="31211">Style:</string>
+  <string id="31212">Mood:</string>
+  <string id="31213">released:</string>
+  <string id="31214">tracks</string>
+  <string id="31215">discography</string>
+  <string id="31216">get thumb</string>
+  <string id="31217">get fanart</string>
+  <string id="31218">refresh</string>
+  <string id="31219">DIRECTOR:</string>
+  <string id="31220">WRITER:</string>
+  <string id="31221">Watched:</string>
+  <string id="31222">UnWatched:</string>
+  <string id="31223">YEAR:</string>
+  <string id="31224">GENRE:</string>
+  <string id="31225">Aired on:</string>
+  <string id="31226">PLAY</string>
+  <string id="31227">VIEW CAST</string>
+  <string id="31228">VIEW TRAILER</string> 
+
+  <string id="31400">Please Wait...</string>  	
+</strings>
