@@ -1,0 +1,161 @@
+<includes>
+
+<!--TVSHOW and Music Fanart Info View -->
+	
+	<include name="SeasonWrap">
+	<control type="group">
+		<include>InfoOpenClose</include>
+		<include>ViewWindowOC</include>
+		<include>ContextFade</include>
+		<include>Keyboard</include>
+		<control type="group">
+			<visible>Control.IsVisible(525)</visible>
+			<posx>0</posx>
+			<posy>100</posy>
+			
+			
+			<control type="image">
+				<posx>180</posx>
+				<posy>362</posy>
+				<width>34</width>
+				<height>34</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>Home/extras/leftarrow.png</texture>
+				<colordiffuse>78ffffff</colordiffuse>
+				<animation effect="fade" time="400" delay="50">Visible</animation>
+				<visible>!Container(525).OnPrevious</visible>					
+			</control>
+			<control type="image">
+				<posx>180</posx>
+				<posy>362</posy>
+				<width>34</width>
+				<height>34</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>Home/extras/leftarrow.png</texture>
+				<colordiffuse>78ffffff</colordiffuse>
+				<animation type="Hidden">
+					<effect type="slide" start="-10" end="0" center="auto" time="300" reversible="false" />
+					<effect type="fade" start="100" end="0" time="300" reversible="false" />
+					<effect type="zoom" start="125" end="100" center="auto" time="300" reversible="false" />					
+				</animation>
+				<visible>Container(525).OnPrevious</visible>					
+			</control>			
+			
+			
+			<control type="image">
+				<posx>1064</posx>
+				<posy>362</posy>
+				<width>34</width>
+				<height>34</height>
+				<aspectratio>stretch</aspectratio>
+				<texture flipx="true">Home/extras/leftarrow.png</texture>
+				<colordiffuse>78ffffff</colordiffuse>	
+				<animation effect="fade" time="400" delay="50">Visible</animation>
+				<visible>!Container(525).OnNext</visible>				
+			</control>
+			<control type="image">
+				<posx>1064</posx>
+				<posy>362</posy>
+				<width>34</width>
+				<height>34</height>
+				<aspectratio>stretch</aspectratio>
+				<texture flipx="true">Home/extras/leftarrow.png</texture>
+				<colordiffuse>78ffffff</colordiffuse>
+				<animation type="Hidden">
+					<effect type="slide" start="10" end="0" center="auto" time="300" reversible="false" />
+					<effect type="fade" start="100" end="0" time="300" reversible="false" />
+					<effect type="zoom" start="125" end="100" center="auto" time="300" reversible="false" />					
+				</animation>
+				<visible>Container(525).OnNext</visible>				
+			</control>
+
+		<control type="group">
+			<visible>Control.IsVisible(525)</visible>
+			<posx>0</posx>
+			<posy>80</posy>
+			<control type="wraplist" id="525">
+				<visible>Container.Content(Seasons) | Container.Content(Albums)</visible>
+				<visible>!Skin.HasSetting(HideSeasonWrap)</visible>
+				<posx>232</posx>
+				<posy>120</posy>
+				<width>820</width>
+				<height>560</height>
+				<onleft>57</onleft>
+				<onright>57</onright>
+				<onup>300</onup>
+				<ondown>62</ondown>
+				<viewtype label="SeasonWrap">bigwrap</viewtype>
+				<pagecontrol>62</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<focusposition>2</focusposition>
+				<orientation>horizontal</orientation>
+				
+				<itemlayout height="310" width="170">
+					<control type="image">
+						<posx>0</posx>
+						<posy>83</posy>
+						<width>120</width>
+						<height>180</height>
+						<bordersize>2</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true" diffuse="poster/posterdiffusesmall.png">$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>222</posy>
+						<width>120</width>
+						<height>180</height>
+						<bordersize>2</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="poster/posterreflectdiffuse.png">$INFO[ListItem.Icon]</texture>
+						<colordiffuse>42ffffff</colordiffuse>
+					</control>
+				</itemlayout>
+				
+				<focusedlayout height="310" width="186">
+					<control type="image">
+						<posx>0</posx>
+						<posy>83</posy>
+						<width>129</width>
+						<height>180</height>
+						<bordersize>2</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true" diffuse="poster/posterdiffusesmall.png">$INFO[ListItem.Icon]</texture>
+						<animation reversible="false" effect="zoom" start="100" end="130" center="50,95" time="250">focus</animation>
+						<animation reversible="false" effect="zoom" start="130" end="100" center="50,95" time="250">unfocus</animation>
+					</control>
+					<control type="image">
+						<posx>-33</posx>
+						<posy>62</posy>
+						<width>204</width>
+						<height>269</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>infowrap/focusborder.png</texture>
+						<visible>!Control.HasFocus(300)</visible>
+						<animation reversible="false" effect="zoom" start="77" end="100" center="50,95" time="250">focus</animation>
+						<animation reversible="false" effect="zoom" start="100" end="77" center="50,95" time="250">unfocus</animation>	
+					</control>
+				</focusedlayout>
+				
+			</control>	
+			<control type="label">
+				<posx>0</posx>
+				<posy>439</posy>
+				<width>1280</width>
+				<height>35</height>
+				<font>tvtitle2</font>
+				<textcolor>movietitleb</textcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<animation type="fade" start="0" end="100" time="600" delay="200">Visible</animation>
+			</control>
+	</control>		
+	</control>
+	</control>	
+	</include>
+
+
+	
+</includes>

@@ -1,0 +1,3314 @@
+<includes>
+	<!-- RECENTLY ADDED MOVIES -->
+    <include name="RecentlyAddedMovies">
+        <control type="list" id="3010">
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>640</onleft>
+            <onright>540</onright>
+            <onup>540</onup>
+            <ondown>3010</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>3</focusposition>
+            <orientation>vertical</orientation>
+            <animation type="Conditional" condition="Container(540).HasFocus(2) | Container(540).HasFocus(14)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" condition="Window.Previous(startup)">
+                <effect type="slide" start="4000,0" end="0,0" time="2000" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowOpen" condition="!Window.Previous(startup)">
+                <effect type="slide" start="2000,0" end="0,0" time="1500" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <visible>Container(540).HasFocus(2) | Container(540).HasFocus(14)</visible>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2,, minutes]</label>
+					<visible>Skin.HasSetting(HomeRecentlyAddedMovies)</visible>
+                </control>
+				<control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Property(RunningTime),, minutes]</label>
+					<visible>Skin.HasSetting(HomeWatchlistMovies)</visible>	
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                    <visible>Control.HasFocus(3010)</visible>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>310</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2,, minutes]</label>
+					<visible>Skin.HasSetting(HomeRecentlyAddedMovies)</visible>
+                </control>
+				<control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Property(RunningTime),, minutes]</label>
+					<visible>Skin.HasSetting(HomeWatchlistMovies)</visible>	
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+
+                <item id="1">
+					<icon>$INFO[Window.Property(LatestMovie.1.Fanart)]</icon>
+                    <label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
+                    <label2>$INFO[Window.Property(LatestMovie.1.RunningTime)]</label2>
+					<thumb>$INFO[Window.Property(LatestMovie.1.Year)]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestMovie.1.Rating)]</property> -->
+                    <onclick>$INFO[Window.Property(LatestMovie.1.Path),PlayMedia(,)]</onclick>
+					<visible>!Skin.HasSetting(HomeWatchlistMovies)</visible>
+                    <visible>!IsEmpty(Window.Property(LatestMovie.1.Title))</visible>
+                </item>
+                <item id="2">
+                    <icon>$INFO[Window.Property(LatestMovie.2.Fanart)]</icon>
+                    <label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
+                    <label2>$INFO[Window.Property(LatestMovie.2.RunningTime)]</label2>
+					<thumb>$INFO[Window.Property(LatestMovie.2.Year)]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestMovie.1.Rating)]</property> -->
+                    <onclick>$INFO[Window.Property(LatestMovie.2.Path),PlayMedia(,)]</onclick>
+					<visible>!Skin.HasSetting(HomeWatchlistMovies)</visible>
+                    <visible>!IsEmpty(Window.Property(LatestMovie.2.Title))</visible>
+                </item>
+                <item id="3">
+                    <icon>$INFO[Window.Property(LatestMovie.3.Fanart)]</icon>
+                    <label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
+                    <label2>$INFO[Window.Property(LatestMovie.3.RunningTime)]</label2>
+					<thumb>$INFO[Window.Property(LatestMovie.3.Year)]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestMovie.1.Rating)]</property> -->
+                    <onclick>$INFO[Window.Property(LatestMovie.3.Path),PlayMedia(,)]</onclick>
+					<visible>!Skin.HasSetting(HomeWatchlistMovies)</visible>
+                    <visible>!IsEmpty(Window.Property(LatestMovie.3.Title))</visible>
+                </item>
+                <item id="4">
+                    <icon>$INFO[Window.Property(LatestMovie.4.Fanart)]</icon>
+                    <label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
+                    <label2>$INFO[Window.Property(LatestMovie.4.RunningTime)]</label2>
+					<thumb>$INFO[Window.Property(LatestMovie.4.Year)]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestMovie.1.Rating)]</property> -->
+                    <onclick>$INFO[Window.Property(LatestMovie.4.Path),PlayMedia(,)]</onclick>
+					<visible>!Skin.HasSetting(HomeWatchlistMovies)</visible>
+                    <visible>!IsEmpty(Window.Property(LatestMovie.4.Title))</visible>
+                </item>
+				  <item id="81">
+              <label>$INFO[Window.Property(WatchList_Movie.1.Label)]</label>
+              <label2>$INFO[Window.Property(WatchList_Movie.1.RunningTime)]</label2>
+              <onclick>PlayMedia($INFO[Window.Property(WatchList_Movie.1.Path)])</onclick>
+              <icon>$INFO[Window.Property(WatchList_Movie.1.Fanart)]</icon>
+              <thumb>$INFO[Window.Property(WatchList_Movie.1.Year)]</thumb>
+			  <property name="RunningTime">$INFO[Window.Property(LatestMovie.1.RunningTime)]</property>
+              <visible>Skin.HasSetting(HomeWatchlistMovies)</visible>
+              <visible>!IsEmpty(Window.Property(WatchList_Movie.1.Label))</visible>
+            </item>
+            <item id="82">
+              <label>$INFO[Window.Property(WatchList_Movie.2.Label)]</label>
+              <label2>$INFO[Window.Property(WatchList_Movie.2.RunningTime)]</label2>
+              <onclick>PlayMedia($INFO[Window.Property(WatchList_Movie.2.Path)])</onclick>
+              <icon>$INFO[Window.Property(WatchList_Movie.2.Fanart)]</icon>
+              <thumb>$INFO[Window.Property(WatchList_Movie.2.Year)]</thumb>
+			  <property name="RunningTime">$INFO[Window.Property(LatestMovie.2.RunningTime)]</property>
+              <visible>Skin.HasSetting(HomeWatchlistMovies)</visible>
+              <visible>!IsEmpty(Window.Property(WatchList_Movie.2.Label))</visible>
+            </item>
+            <item id="83">
+              <label>$INFO[Window.Property(WatchList_Movie.3.Label)]</label>
+              <label2>$INFO[Window.Property(WatchList_Movie.3.RunningTime)]</label2>
+              <onclick>PlayMedia($INFO[Window.Property(WatchList_Movie.3.Path)])</onclick>
+              <icon>$INFO[Window.Property(WatchList_Movie.3.Fanart)]</icon>
+              <thumb>$INFO[Window.Property(WatchList_Movie.3.Year)]</thumb>
+			  <property name="RunningTime">$INFO[Window.Property(LatestMovie.3.RunningTime)]</property>
+              <visible>Skin.HasSetting(HomeWatchlistMovies)</visible>
+              <visible>!IsEmpty(Window.Property(WatchList_Movie.3.Label))</visible>
+            </item>
+            <item id="84">
+              <label>$INFO[Window.Property(WatchList_Movie.4.Label)]</label>
+              <label2>$INFO[Window.Property(WatchList_Movie.4.RunningTime)]</label2>
+              <onclick>PlayMedia($INFO[Window.Property(WatchList_Movie.4.Path)])</onclick>
+              <icon>$INFO[Window.Property(WatchList_Movie.4.Fanart)]</icon>
+              <thumb>$INFO[Window.Property(WatchList_Movie.4.Year)]</thumb>
+			  <property name="RunningTime">$INFO[Window.Property(LatestMovie.4.RunningTime)]</property>
+              <visible>Skin.HasSetting(HomeWatchlistMovies)</visible>
+              <visible>!IsEmpty(Window.Property(WatchList_Movie.4.Label))</visible>
+            </item>
+            </content>
+        </control>
+		<!-- FEATURED MOVIE -->
+        <control type="image">
+            <posx>0</posx>
+            <posy>249</posy>
+            <width>491</width>
+            <height>379</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredfo.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3011)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3011)" reversible="false">
+                <effect type="fade" start="0" end="100" time="400" delay="0"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+			<control type="list" id="3011">
+				<posx>17</posx>
+				<posy>307</posy>
+				<width>479</width>
+				<height>275</height>
+				<onleft>540</onleft>
+				<onright>640</onright>
+				<onup>540</onup>
+				<ondown>540</ondown>
+				<scrolltime>300</scrolltime>
+				<orientation>vertical</orientation>
+				<animation type="Conditional" condition="Container(540).HasFocus(2) | Container(540).HasFocus(14)" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<animation type="WindowOpen" condition="Window.Previous(startup)">
+					<effect type="slide" start="-4000,0" end="0,0" time="2000" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowOpen" condition="!Window.Previous(startup)">
+					<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowClose">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<visible>Container(540).HasFocus(2) | Container(540).HasFocus(14)</visible>
+				<itemlayout height="275" width="479">	
+				</itemlayout>
+				<focusedlayout height="275" width="479">	
+				  <control type="image">
+					  <posx>0</posx>
+					  <posy>0</posy>
+					  <width>479</width>
+					  <height>275</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture background="true" diffuse="Home/extras/featureddifuse.png">$INFO[ListItem.Icon]</texture>
+					  <colordiffuse>ffffffff</colordiffuse>				
+				  </control>
+				  <control type="image">
+					  <posx>-1</posx>
+					  <posy>194</posy>
+					  <width>480</width>
+					  <height>31</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture border="7,7,7,7">Home/extras/featuredname.png</texture>
+					  <colordiffuse>ffffffff</colordiffuse>	
+				<animation type="WindowOpen" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" delay="1200" />
+				</animation>			
+				  </control>					
+				  <control type="label">
+					  <posx>10</posx>
+					  <posy>191</posy>
+					  <width>455</width>
+					  <height>35</height>
+					  <font>homemenu3</font>
+					  <textcolor>ff505050</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label]</label>
+				  </control>
+				</focusedlayout>	
+					<content>
+						<item id="1">
+							<icon>$INFO[Window.Property(RandomMovie.1.Fanart)]</icon>
+							<label>$INFO[Window.Property(RandomMovie.1.Title)]</label>
+							<onclick>$INFO[Window.Property(RandomMovie.1.Path),PlayMedia(,)]</onclick>
+							<visible>!IsEmpty(Window.Property(RandomMovie.1.Title))</visible>
+						</item>
+					</content>
+				</control>
+        <control type="image">
+            <posx>180</posx>
+            <posy>338</posy>
+            <width>137</width>
+            <height>137</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredplay.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3011)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3011)" reversible="false">
+                <effect type="zoom" start="70" end="100" center="auto" time="350" tween="back" easing="out" />
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+    </include>
+	
+	<!-- RECENTLY ADDED MOVIES Playlist1 -->
+    <include name="RecentlyAddedMoviePlaylist1">
+        <control type="list" id="3030">
+		<visible>Skin.HasSetting(HomeLatestPlaylist1)</visible>
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>3031</onleft>
+            <onright>3031</onright>
+            <onup>540</onup>
+            <ondown>3030</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>3</focusposition>
+            <orientation>vertical</orientation>
+            <animation type="Conditional" condition="Container(540).HasFocus(30)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" condition="Window.Previous(startup)">
+                <effect type="slide" start="4000,0" end="0,0" time="2000" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowOpen" condition="!Window.Previous(startup)">
+                <effect type="slide" start="2000,0" end="0,0" time="1500" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <visible>Container(540).HasFocus(30)</visible>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2,, minutes]</label>
+                </control>
+				<!-- <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Property(RunningTime),, minutes]</label>
+					<visible>Skin.HasSetting(HomeWatchlistMovies)</visible>	
+                </control> -->
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                    <visible>Control.HasFocus(3030)</visible>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>310</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2,, minutes]</label>
+                </control>
+				<!-- <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Property(RunningTime),, minutes]</label>
+					<visible>Skin.HasSetting(HomeWatchlistMovies)</visible>	
+                </control> -->
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu1.1.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu1.1.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu1.1.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu1.1.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu1.1.Path)]&quot;)</onclick>
+                </item>
+				<item id="2">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu1.2.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu1.2.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu1.2.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu1.2.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu1.2.Path)]&quot;)</onclick>
+                </item>
+				<item id="3">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu1.3.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu1.3.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu1.3.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu1.3.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu1.3.Path)]&quot;)</onclick>
+                </item>
+				<item id="4">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu1.4.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu1.4.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu1.4.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu1.4.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu1.4.Path)]&quot;)</onclick>
+                </item>
+            </content>
+        </control>
+		<!-- FEATURED MOVIE -->
+        <control type="image">
+            <posx>0</posx>
+            <posy>249</posy>
+            <width>491</width>
+            <height>379</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredfo.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3031)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3031)" reversible="false">
+                <effect type="fade" start="0" end="100" time="400" delay="0"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+			<control type="list" id="3031">
+				<posx>17</posx>
+				<posy>307</posy>
+				<width>479</width>
+				<height>275</height>
+				<onleft>3030</onleft>
+				<onright>3030</onright>
+				<onup>540</onup>
+				<ondown>540</ondown>
+				<scrolltime>300</scrolltime>
+				<orientation>vertical</orientation>
+				<animation type="Conditional" condition="Container(540).HasFocus(30)" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<animation type="WindowOpen" condition="Window.Previous(startup)">
+					<effect type="slide" start="-4000,0" end="0,0" time="2000" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowOpen" condition="!Window.Previous(startup)">
+					<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowClose">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<visible>Container(540).HasFocus(30)</visible>
+				<itemlayout height="275" width="479">	
+				</itemlayout>
+				<focusedlayout height="275" width="479">	
+				  <control type="image">
+					  <posx>0</posx>
+					  <posy>0</posy>
+					  <width>479</width>
+					  <height>275</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture background="true" diffuse="Home/extras/featureddifuse.png">$INFO[ListItem.Icon]</texture>
+					  <colordiffuse>ffffffff</colordiffuse>				
+				  </control>
+				  <control type="image">
+					  <posx>-1</posx>
+					  <posy>194</posy>
+					  <width>480</width>
+					  <height>31</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture border="7,7,7,7">Home/extras/featuredname.png</texture>
+					  <colordiffuse>ffffffff</colordiffuse>	
+				<animation type="WindowOpen" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" delay="1200" />
+				</animation>			
+				  </control>					
+				  <control type="label">
+					  <posx>10</posx>
+					  <posy>191</posy>
+					  <width>455</width>
+					  <height>35</height>
+					  <font>homemenu3</font>
+					  <textcolor>ff505050</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label]</label>
+				  </control>
+				</focusedlayout>	
+					<content>
+						<item id="1">
+							<icon>$INFO[Window.Property(PlaylistRandomMovieMenu1.1.Fanart)]</icon>
+							<label>$INFO[Window.Property(PlaylistRandomMovieMenu1.1.Title)]</label>
+							<onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistRandomMovieMenu1.1.Path)]&quot;)</onclick>
+							<visible>!IsEmpty(Window.Property(PlaylistRandomMovieMenu1.1.Title))</visible>
+						</item>
+					</content>
+				</control>
+        <control type="image">
+            <posx>180</posx>
+            <posy>338</posy>
+            <width>137</width>
+            <height>137</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredplay.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3031)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3031)" reversible="false">
+                <effect type="zoom" start="70" end="100" center="auto" time="350" tween="back" easing="out" />
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+    </include>
+	
+	<!-- RECENTLY ADDED MOVIES Playlist2 -->
+    <include name="RecentlyAddedMoviePlaylist2">
+        <control type="list" id="3032">
+		<visible>Skin.HasSetting(HomeLatestPlaylist2)</visible>
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>3033</onleft>
+            <onright>3033</onright>
+            <onup>540</onup>
+            <ondown>3032</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>3</focusposition>
+            <orientation>vertical</orientation>
+            <animation type="Conditional" condition="Container(540).HasFocus(31)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" condition="Window.Previous(startup)">
+                <effect type="slide" start="4000,0" end="0,0" time="2000" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowOpen" condition="!Window.Previous(startup)">
+                <effect type="slide" start="2000,0" end="0,0" time="1500" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <visible>Container(540).HasFocus(31)</visible>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2,, minutes]</label>
+                </control>
+				<!-- <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Property(RunningTime),, minutes]</label>
+					<visible>Skin.HasSetting(HomeWatchlistMovies)</visible>	
+                </control> -->
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                    <visible>Control.HasFocus(3032)</visible>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>310</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2,, minutes]</label>
+                </control>
+				<!-- <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Property(RunningTime),, minutes]</label>
+					<visible>Skin.HasSetting(HomeWatchlistMovies)</visible>	
+                </control> -->
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu2.1.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu2.1.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu2.1.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu2.1.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu2.1.Path)]&quot;)</onclick>
+                </item>
+				<item id="2">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu2.2.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu2.2.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu2.2.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu2.2.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu2.2.Path)]&quot;)</onclick>
+                </item>
+				<item id="3">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu2.3.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu2.3.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu2.3.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu2.3.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu2.3.Path)]&quot;)</onclick>
+                </item>
+				<item id="4">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu2.4.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu2.4.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu2.4.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu2.4.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu2.4.Path)]&quot;)</onclick>
+                </item>
+            </content>
+        </control>
+		<!-- FEATURED MOVIE -->
+        <control type="image">
+            <posx>0</posx>
+            <posy>249</posy>
+            <width>491</width>
+            <height>379</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredfo.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3033)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3033)" reversible="false">
+                <effect type="fade" start="0" end="100" time="400" delay="0"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+			<control type="list" id="3033">
+				<posx>17</posx>
+				<posy>307</posy>
+				<width>479</width>
+				<height>275</height>
+				<onleft>3032</onleft>
+				<onright>3032</onright>
+				<onup>540</onup>
+				<ondown>540</ondown>
+				<scrolltime>300</scrolltime>
+				<orientation>vertical</orientation>
+				<animation type="Conditional" condition="Container(540).HasFocus(31)" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<animation type="WindowOpen" condition="Window.Previous(startup)">
+					<effect type="slide" start="-4000,0" end="0,0" time="2000" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowOpen" condition="!Window.Previous(startup)">
+					<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowClose">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<visible>Container(540).HasFocus(31)</visible>
+				<itemlayout height="275" width="479">	
+				</itemlayout>
+				<focusedlayout height="275" width="479">	
+				  <control type="image">
+					  <posx>0</posx>
+					  <posy>0</posy>
+					  <width>479</width>
+					  <height>275</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture background="true" diffuse="Home/extras/featureddifuse.png">$INFO[ListItem.Icon]</texture>
+					  <colordiffuse>ffffffff</colordiffuse>				
+				  </control>
+				  <control type="image">
+					  <posx>-1</posx>
+					  <posy>194</posy>
+					  <width>480</width>
+					  <height>31</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture border="7,7,7,7">Home/extras/featuredname.png</texture>
+					  <colordiffuse>ffffffff</colordiffuse>	
+				<animation type="WindowOpen" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" delay="1200" />
+				</animation>			
+				  </control>					
+				  <control type="label">
+					  <posx>10</posx>
+					  <posy>191</posy>
+					  <width>455</width>
+					  <height>35</height>
+					  <font>homemenu3</font>
+					  <textcolor>ff505050</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label]</label>
+				  </control>
+				</focusedlayout>	
+					<content>
+						<item id="1">
+							<icon>$INFO[Window.Property(PlaylistRandomMovieMenu2.1.Fanart)]</icon>
+							<label>$INFO[Window.Property(PlaylistRandomMovieMenu2.1.Title)]</label>
+							<onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistRandomMovieMenu2.1.Path)]&quot;)</onclick>
+							<visible>!IsEmpty(Window.Property(PlaylistRandomMovieMenu2.1.Title))</visible>
+						</item>
+					</content>
+				</control>
+        <control type="image">
+            <posx>180</posx>
+            <posy>338</posy>
+            <width>137</width>
+            <height>137</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredplay.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3033)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3033)" reversible="false">
+                <effect type="zoom" start="70" end="100" center="auto" time="350" tween="back" easing="out" />
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+    </include>
+	
+	<!-- RECENTLY ADDED MOVIES Playlist3 -->
+    <include name="RecentlyAddedMoviePlaylist3">
+        <control type="list" id="3034">
+		<visible>Skin.HasSetting(HomeLatestPlaylist3)</visible>
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>3035</onleft>
+            <onright>3035</onright>
+            <onup>540</onup>
+            <ondown>3034</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>3</focusposition>
+            <orientation>vertical</orientation>
+            <animation type="Conditional" condition="Container(540).HasFocus(32)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" condition="Window.Previous(startup)">
+                <effect type="slide" start="4000,0" end="0,0" time="2000" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowOpen" condition="!Window.Previous(startup)">
+                <effect type="slide" start="2000,0" end="0,0" time="1500" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <visible>Container(540).HasFocus(32)</visible>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2,, minutes]</label>
+                </control>
+				<!-- <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Property(RunningTime),, minutes]</label>
+					<visible>Skin.HasSetting(HomeWatchlistMovies)</visible>	
+                </control> -->
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                    <visible>Control.HasFocus(3034)</visible>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>310</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2,, minutes]</label>
+                </control>
+				<!-- <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Property(RunningTime),, minutes]</label>
+					<visible>Skin.HasSetting(HomeWatchlistMovies)</visible>	
+                </control> -->
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu3.1.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu3.1.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu3.1.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu3.1.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu3.1.Path)]&quot;)</onclick>
+                </item>
+				<item id="2">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu3.2.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu3.2.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu3.2.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu3.2.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu3.2.Path)]&quot;)</onclick>
+                </item>
+				<item id="3">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu3.3.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu3.3.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu3.3.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu3.3.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu3.3.Path)]&quot;)</onclick>
+                </item>
+				<item id="4">
+					<icon>$INFO[Window.Property(PlaylistLastMovieMenu3.4.Fanart)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastMovieMenu3.4.Title)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastMovieMenu3.4.RunningTime)]</label2>
+				    <thumb>$INFO[Window.Property(PlaylistLastMovieMenu3.4.Year)]</thumb>
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastMovieMenu3.4.Path)]&quot;)</onclick>
+                </item>
+            </content>
+        </control>
+		<!-- FEATURED MOVIE -->
+        <control type="image">
+            <posx>0</posx>
+            <posy>249</posy>
+            <width>491</width>
+            <height>379</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredfo.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3035)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3035)" reversible="false">
+                <effect type="fade" start="0" end="100" time="400" delay="0"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+			<control type="list" id="3035">
+				<posx>17</posx>
+				<posy>307</posy>
+				<width>479</width>
+				<height>275</height>
+				<onleft>3034</onleft>
+				<onright>3034</onright>
+				<onup>540</onup>
+				<ondown>540</ondown>
+				<scrolltime>300</scrolltime>
+				<orientation>vertical</orientation>
+				<animation type="Conditional" condition="Container(540).HasFocus(32)" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<animation type="WindowOpen" condition="Window.Previous(startup)">
+					<effect type="slide" start="-4000,0" end="0,0" time="2000" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowOpen" condition="!Window.Previous(startup)">
+					<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowClose">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<visible>Container(540).HasFocus(32)</visible>
+				<itemlayout height="275" width="479">	
+				</itemlayout>
+				<focusedlayout height="275" width="479">	
+				  <control type="image">
+					  <posx>0</posx>
+					  <posy>0</posy>
+					  <width>479</width>
+					  <height>275</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture background="true" diffuse="Home/extras/featureddifuse.png">$INFO[ListItem.Icon]</texture>
+					  <colordiffuse>ffffffff</colordiffuse>				
+				  </control>
+				  <control type="image">
+					  <posx>-1</posx>
+					  <posy>194</posy>
+					  <width>480</width>
+					  <height>31</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture border="7,7,7,7">Home/extras/featuredname.png</texture>
+					  <colordiffuse>ffffffff</colordiffuse>	
+				<animation type="WindowOpen" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" delay="1200" />
+				</animation>			
+				  </control>					
+				  <control type="label">
+					  <posx>10</posx>
+					  <posy>191</posy>
+					  <width>455</width>
+					  <height>35</height>
+					  <font>homemenu3</font>
+					  <textcolor>ff505050</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label]</label>
+				  </control>
+				</focusedlayout>	
+					<content>
+						<item id="1">
+							<icon>$INFO[Window.Property(PlaylistRandomMovieMenu3.1.Fanart)]</icon>
+							<label>$INFO[Window.Property(PlaylistRandomMovieMenu3.1.Title)]</label>
+							<onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistRandomMovieMenu3.1.Path)]&quot;)</onclick>
+							<visible>!IsEmpty(Window.Property(PlaylistRandomMovieMenu3.1.Title))</visible>
+						</item>
+					</content>
+				</control>
+        <control type="image">
+            <posx>180</posx>
+            <posy>338</posy>
+            <width>137</width>
+            <height>137</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredplay.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3035)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3035)" reversible="false">
+                <effect type="zoom" start="70" end="100" center="auto" time="350" tween="back" easing="out" />
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+    </include>
+	
+	
+	
+	
+	
+	
+	<!-- RECENTLY ADDED TV -->
+    <include name="RecentlyAddedEpisodes">
+        <control type="list" id="3012">
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>642</onleft>
+            <onright>540</onright>
+            <onup>540</onup>
+            <ondown>3012</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>3</focusposition>
+            <orientation>vertical</orientation>
+            <visible>Container(540).HasFocus(3)</visible>
+            <animation type="Conditional" condition="Container(540).HasFocus(3)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="slide" start="2000,0" end="0,0" time="1500" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" >$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <visible>Control.HasFocus(3012)</visible>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" >$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(LatestEpisode.1.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestEpisode.1.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(LatestEpisode.1.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(LatestEpisode.1.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>$INFO[Window.Property(LatestEpisode.1.Path),PlayMedia(,)]</onclick>
+					<visible>!Skin.HasSetting(HomeWatchlistEpisodes)</visible>
+                    <visible>!IsEmpty(Window.Property(LatestEpisode.1.EpisodeTitle))</visible>
+                </item>
+                <item id="2">
+                    <icon>$INFO[Window.Property(LatestEpisode.2.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestEpisode.2.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(LatestEpisode.2.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(LatestEpisode.2.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.2.Rating)]</property> -->
+                    <onclick>$INFO[Window.Property(LatestEpisode.2.Path),PlayMedia(,)]</onclick>
+					<visible>!Skin.HasSetting(HomeWatchlistEpisodes)</visible>
+                    <visible>!IsEmpty(Window.Property(LatestEpisode.2.EpisodeTitle))</visible>
+                </item>
+                <item id="3">
+                    <icon>$INFO[Window.Property(LatestEpisode.3.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestEpisode.3.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(LatestEpisode.3.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(LatestEpisode.3.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.3.Rating)]</property> -->
+                    <onclick>$INFO[Window.Property(LatestEpisode.3.Path),PlayMedia(,)]</onclick>
+					<visible>!Skin.HasSetting(HomeWatchlistEpisodes)</visible>
+                    <visible>!IsEmpty(Window.Property(LatestEpisode.3.EpisodeTitle))</visible>
+                </item>
+                <item id="4">
+                    <icon>$INFO[Window.Property(LatestEpisode.4.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestEpisode.4.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(LatestEpisode.4.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(LatestEpisode.4.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.4.Rating)]</property> -->
+                    <onclick>$INFO[Window.Property(LatestEpisode.4.Path),PlayMedia(,)]</onclick>
+					<visible>!Skin.HasSetting(HomeWatchlistEpisodes)</visible>
+                    <visible>!IsEmpty(Window.Property(LatestEpisode.4.EpisodeTitle))</visible>
+                </item>
+				 <item id="73">
+              <label>$INFO[Window.Property(WatchList_Episode.1.Label)]</label>
+              <label2>$INFO[Window.Property(WatchList_Episode.1.TVShowTitle)]</label2>
+              <onclick>PlayMedia($INFO[Window.Property(WatchList_Episode.1.Path)])</onclick>
+              <icon>$INFO[Window.Property(WatchList_Episode.1.Fanart)]</icon>
+              <thumb>S$INFO[Window.Property(Watchlist_Episode.1.Season)]E$INFO[Window.Property(Watchlist_Episode.1.Episode)]</thumb>
+              <visible>Skin.HasSetting(HomeWatchlistEpisodes)</visible>
+              <visible>!IsEmpty(Window.Property(WatchList_Episode.1.Label))</visible>
+            </item>
+            <item id="74">
+              <label>$INFO[Window.Property(WatchList_Episode.2.Label)]</label>
+              <label2>$INFO[Window.Property(WatchList_Episode.2.TVShowTitle)]</label2>
+              <onclick>PlayMedia($INFO[Window.Property(WatchList_Episode.2.Path)])</onclick>
+              <icon>$INFO[Window.Property(WatchList_Episode.2.Fanart)]</icon>
+              <thumb>S$INFO[Window.Property(Watchlist_Episode.2.Season)]E$INFO[Window.Property(Watchlist_Episode.2.Episode)]</thumb>
+              <visible>Skin.HasSetting(HomeWatchlistEpisodes)</visible>
+              <visible>!IsEmpty(Window.Property(WatchList_Episode.2.Label))</visible>
+            </item>
+            <item id="75">
+              <label>$INFO[Window.Property(WatchList_Episode.3.Label)]</label>
+              <label2>$INFO[Window.Property(WatchList_Episode.3.TVShowTitle)]</label2>
+              <onclick>PlayMedia($INFO[Window.Property(WatchList_Episode.3.Path)])</onclick>
+              <icon>$INFO[Window.Property(WatchList_Episode.3.Fanart)]</icon>
+              <thumb>S$INFO[Window.Property(Watchlist_Episode.3.Season)]E$INFO[Window.Property(Watchlist_Episode.3.Episode)]</thumb>
+              <visible>Skin.HasSetting(HomeWatchlistEpisodes)</visible>
+              <visible>!IsEmpty(Window.Property(WatchList_Episode.3.Label))</visible>
+            </item>
+            <item id="76">
+              <label>$INFO[Window.Property(WatchList_Episode.4.Label)]</label>
+              <label2>$INFO[Window.Property(WatchList_Episode.4.TVShowTitle)]</label2>
+              <onclick>PlayMedia($INFO[Window.Property(WatchList_Episode.4.Path)])</onclick>
+              <icon>$INFO[Window.Property(WatchList_Episode.4.Fanart)]</icon>
+              <thumb>S$INFO[Window.Property(Watchlist_Episode.4.Season)]E$INFO[Window.Property(Watchlist_Episode.4.Episode)]</thumb>
+              <visible>Skin.HasSetting(HomeWatchlistEpisodes)</visible>
+              <visible>!IsEmpty(Window.Property(WatchList_Episode.4.Label))</visible>
+            </item>
+            </content>
+        </control>
+		<!-- FEATURED EPISODE -->
+        <control type="image">
+            <posx>0</posx>
+            <posy>249</posy>
+            <width>491</width>
+            <height>379</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredfo.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3013)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3013)" reversible="false">
+                <effect type="fade" start="0" end="100" time="400" delay="0"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+        <control type="list" id="3013">
+            <posx>17</posx>
+            <posy>307</posy>
+            <width>479</width>
+            <height>275</height>
+            <onleft>540</onleft>
+            <onright>642</onright>
+            <onup>540</onup>
+            <ondown>540</ondown>
+            <scrolltime>300</scrolltime>
+            <orientation>vertical</orientation>
+            <animation type="Conditional" condition="Container(540).HasFocus(3)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+				<effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <visible>Container(540).HasFocus(3)</visible>
+            <itemlayout height="275" width="479"></itemlayout>
+            <focusedlayout height="275" width="479">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>479</width>
+                    <height>275</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="Home/extras/featureddifuse.png">$INFO[ListItem.Icon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>-1</posx>
+                    <posy>194</posy>
+                    <width>480</width>
+                    <height>31</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture border="7,7,7,7">Home/extras/featuredname.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="100" time="250" delay="1200" />
+                    </animation>
+                </control>
+                <control type="label">
+                    <posx>10</posx>
+                    <posy>191</posy>
+                    <width>455</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+                    <textcolor>ff505050</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2] • $INFO[ListItem.Label]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(RandomEpisode.1.Thumb)]</icon>
+                    <label>[UPPERCASE]$INFO[Window.Property(RandomEpisode.1.EpisodeNo)][/UPPERCASE]</label>
+                    <label2>$INFO[Window.Property(RandomEpisode.1.ShowTitle)]</label2>
+                    <property name="ItemRating">$INFO[Window.Property(RandomEpisode.1.Rating)]</property>
+                    <onclick>$INFO[Window.Property(RandomEpisode.1.Path),PlayMedia(,)]</onclick>
+                    <visible>!IsEmpty(Window.Property(RandomEpisode.1.EpisodeTitle))</visible>
+                </item>
+            </content>
+        </control>
+        <control type="image">
+            <posx>180</posx>
+            <posy>338</posy>
+            <width>137</width>
+            <height>137</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredplay.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3013)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3013)" reversible="false">
+                <effect type="zoom" start="70" end="100" center="auto" time="350" tween="back" easing="out" />
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+    </include>
+	
+	
+	
+	<!-- RECENTLY ADDED TV Playlist1 -->
+    <include name="RecentlyAddedTVPlaylist1">
+        <control type="list" id="3036">
+		<visible>Skin.HasSetting(HomeLatestTVPlaylist1)</visible>
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>3037</onleft>
+            <onright>3037</onright>
+            <onup>540</onup>
+            <ondown>3036</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>3</focusposition>
+            <orientation>vertical</orientation>
+            <visible>Container(540).HasFocus(33)</visible>
+            <animation type="Conditional" condition="Container(540).HasFocus(33)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="slide" start="2000,0" end="0,0" time="1500" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" >$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <visible>Control.HasFocus(3036)</visible>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" >$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu4.1.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu4.1.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu4.1.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu4.1.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu4.1.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu4.1.EpisodeTitle))</visible>
+                </item>
+				
+                <item id="2">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu4.2.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu4.2.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu4.2.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu4.2.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu4.2.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu4.2.EpisodeTitle))</visible>
+                </item>
+                <item id="3">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu4.3.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu4.3.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu4.3.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu4.3.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu4.3.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu4.3.EpisodeTitle))</visible>
+                </item>
+                <item id="4">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu4.4.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu4.4.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu4.4.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu4.4.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu4.4.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu4.4.EpisodeTitle))</visible>
+                </item>
+            </content>
+        </control>
+		<!-- FEATURED EPISODE -->
+        <control type="image">
+            <posx>0</posx>
+            <posy>249</posy>
+            <width>491</width>
+            <height>379</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredfo.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3037)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3037)" reversible="false">
+                <effect type="fade" start="0" end="100" time="400" delay="0"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+        <control type="list" id="3037">
+            <posx>17</posx>
+            <posy>307</posy>
+            <width>479</width>
+            <height>275</height>
+            <onleft>3036</onleft>
+            <onright>3036</onright>
+            <onup>540</onup>
+            <ondown>540</ondown>
+            <scrolltime>300</scrolltime>
+            <orientation>vertical</orientation>
+            <animation type="Conditional" condition="Container(540).HasFocus(33)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+				<effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <visible>Container(540).HasFocus(33)</visible>
+            <itemlayout height="275" width="479"></itemlayout>
+            <focusedlayout height="275" width="479">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>479</width>
+                    <height>275</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="Home/extras/featureddifuse.png">$INFO[ListItem.Icon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>-1</posx>
+                    <posy>194</posy>
+                    <width>480</width>
+                    <height>31</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture border="7,7,7,7">Home/extras/featuredname.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="100" time="250" delay="1200" />
+                    </animation>
+                </control>
+                <control type="label">
+                    <posx>10</posx>
+                    <posy>191</posy>
+                    <width>455</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+                    <textcolor>ff505050</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2] • $INFO[ListItem.Label]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(PlaylistRandomEpisodeMenu4.1.Thumb)]</icon>
+                    <label>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu4.1.EpisodeNo)][/UPPERCASE]</label>
+                    <label2>$INFO[Window.Property(PlaylistRandomEpisodeMenu4.1.ShowTitle)]</label2>
+					<onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu4.1.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistRandomEpisodeMenu4.1.EpisodeTitle))</visible>
+                </item>
+            </content>
+        </control>
+        <control type="image">
+            <posx>180</posx>
+            <posy>338</posy>
+            <width>137</width>
+            <height>137</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredplay.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3037)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3037)" reversible="false">
+                <effect type="zoom" start="70" end="100" center="auto" time="350" tween="back" easing="out" />
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+    </include>
+	
+	
+	<!-- RECENTLY ADDED TV Playlist2 -->
+    <include name="RecentlyAddedTVPlaylist2">
+        <control type="list" id="3038">
+		<visible>Skin.HasSetting(HomeLatestTVPlaylist2)</visible>
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>3039</onleft>
+            <onright>3039</onright>
+            <onup>540</onup>
+            <ondown>3038</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>3</focusposition>
+            <orientation>vertical</orientation>
+            <visible>Container(540).HasFocus(34)</visible>
+            <animation type="Conditional" condition="Container(540).HasFocus(34)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="slide" start="2000,0" end="0,0" time="1500" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" >$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <visible>Control.HasFocus(3038)</visible>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" >$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu5.1.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu5.1.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu5.1.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu5.1.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu5.1.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu5.1.EpisodeTitle))</visible>
+                </item>
+				
+                <item id="2">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu5.2.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu5.2.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu5.2.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu5.2.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu5.2.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu5.2.EpisodeTitle))</visible>
+                </item>
+                <item id="3">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu5.3.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu5.3.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu5.3.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu5.3.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu5.3.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu5.3.EpisodeTitle))</visible>
+                </item>
+                <item id="4">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu5.4.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu5.4.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu5.4.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu5.4.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu5.4.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu5.4.EpisodeTitle))</visible>
+                </item>
+            </content>
+        </control>
+		<!-- FEATURED EPISODE -->
+        <control type="image">
+            <posx>0</posx>
+            <posy>249</posy>
+            <width>491</width>
+            <height>379</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredfo.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3039)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3039)" reversible="false">
+                <effect type="fade" start="0" end="100" time="400" delay="0"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+        <control type="list" id="3039">
+            <posx>17</posx>
+            <posy>307</posy>
+            <width>479</width>
+            <height>275</height>
+            <onleft>3038</onleft>
+            <onright>3038</onright>
+            <onup>540</onup>
+            <ondown>540</ondown>
+            <scrolltime>300</scrolltime>
+            <orientation>vertical</orientation>
+            <animation type="Conditional" condition="Container(540).HasFocus(34)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+				<effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <visible>Container(540).HasFocus(34)</visible>
+            <itemlayout height="275" width="479"></itemlayout>
+            <focusedlayout height="275" width="479">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>479</width>
+                    <height>275</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="Home/extras/featureddifuse.png">$INFO[ListItem.Icon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>-1</posx>
+                    <posy>194</posy>
+                    <width>480</width>
+                    <height>31</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture border="7,7,7,7">Home/extras/featuredname.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="100" time="250" delay="1200" />
+                    </animation>
+                </control>
+                <control type="label">
+                    <posx>10</posx>
+                    <posy>191</posy>
+                    <width>455</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+                    <textcolor>ff505050</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2] • $INFO[ListItem.Label]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(PlaylistRandomEpisodeMenu5.1.Thumb)]</icon>
+                    <label>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu5.1.EpisodeNo)][/UPPERCASE]</label>
+                    <label2>$INFO[Window.Property(PlaylistRandomEpisodeMenu5.1.ShowTitle)]</label2>
+					<onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu5.1.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistRandomEpisodeMenu5.1.EpisodeTitle))</visible>
+                </item>
+            </content>
+        </control>
+        <control type="image">
+            <posx>180</posx>
+            <posy>338</posy>
+            <width>137</width>
+            <height>137</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredplay.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3039)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3039)" reversible="false">
+                <effect type="zoom" start="70" end="100" center="auto" time="350" tween="back" easing="out" />
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+    </include>
+	
+	
+	<!-- RECENTLY ADDED TV Playlist3 -->
+    <include name="RecentlyAddedTVPlaylist3">
+        <control type="list" id="3040">
+		<visible>Skin.HasSetting(HomeLatestTVPlaylist3)</visible>
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>3041</onleft>
+            <onright>3041</onright>
+            <onup>540</onup>
+            <ondown>3038</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>3</focusposition>
+            <orientation>vertical</orientation>
+            <visible>Container(540).HasFocus(35)</visible>
+            <animation type="Conditional" condition="Container(540).HasFocus(35)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="slide" start="2000,0" end="0,0" time="1500" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" >$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <visible>Control.HasFocus(3040)</visible>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                </control>
+                <control type="image">
+                    <posx>20</posx>
+                    <posy>12</posy>
+                    <width>130</width>
+                    <height>75</height>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" >$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>4</posy>
+					<width>147</width>
+					<height>91</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>grid/fanborder.png</texture>
+				</control>
+                <control type="label">
+                    <posx>160</posx>
+                    <posy>12</posy>
+                    <width>314</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>35</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>161</posx>
+                    <posy>55</posy>
+                    <width>250</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu6.1.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu6.1.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu6.1.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu6.1.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu6.1.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu6.1.EpisodeTitle))</visible>
+                </item>
+				
+                <item id="2">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu6.2.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu6.2.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu6.2.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu6.2.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu6.2.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu6.2.EpisodeTitle))</visible>
+                </item>
+                <item id="3">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu6.3.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu6.3.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu6.3.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu6.3.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu6.3.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu6.3.EpisodeTitle))</visible>
+                </item>
+                <item id="4">
+                    <icon>$INFO[Window.Property(PlaylistLastEpisodeMenu6.4.Thumb)]</icon>
+                    <label>$INFO[Window.Property(PlaylistLastEpisodeMenu6.4.EpisodeTitle)]</label>
+                    <label2>$INFO[Window.Property(PlaylistLastEpisodeMenu6.4.ShowTitle)]</label2>
+					<thumb>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu6.4.EpisodeNo)][/UPPERCASE]</thumb>
+                    <!-- <property name="ItemRating">$INFO[Window.Property(LatestEpisode.1.Rating)]</property> -->
+                    <onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu6.4.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistLastEpisodeMenu6.4.EpisodeTitle))</visible>
+                </item>
+            </content>
+        </control>
+		<!-- FEATURED EPISODE -->
+        <control type="image">
+            <posx>0</posx>
+            <posy>249</posy>
+            <width>491</width>
+            <height>379</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredfo.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3041)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3041)" reversible="false">
+                <effect type="fade" start="0" end="100" time="400" delay="0"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+        <control type="list" id="3041">
+            <posx>17</posx>
+            <posy>307</posy>
+            <width>479</width>
+            <height>275</height>
+            <onleft>3040</onleft>
+            <onright>3040</onright>
+            <onup>540</onup>
+            <ondown>540</ondown>
+            <scrolltime>300</scrolltime>
+            <orientation>vertical</orientation>
+            <animation type="Conditional" condition="Container(540).HasFocus(35)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+				<effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <visible>Container(540).HasFocus(35)</visible>
+            <itemlayout height="275" width="479"></itemlayout>
+            <focusedlayout height="275" width="479">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>479</width>
+                    <height>275</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="Home/extras/featureddifuse.png">$INFO[ListItem.Icon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>-1</posx>
+                    <posy>194</posy>
+                    <width>480</width>
+                    <height>31</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture border="7,7,7,7">Home/extras/featuredname.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="100" time="250" delay="1200" />
+                    </animation>
+                </control>
+                <control type="label">
+                    <posx>10</posx>
+                    <posy>191</posy>
+                    <width>455</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+                    <textcolor>ff505050</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2] • $INFO[ListItem.Label]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(PlaylistRandomEpisodeMenu6.1.Thumb)]</icon>
+                    <label>[UPPERCASE]$INFO[Window.Property(PlaylistLastEpisodeMenu6.1.EpisodeNo)][/UPPERCASE]</label>
+                    <label2>$INFO[Window.Property(PlaylistRandomEpisodeMenu6.1.ShowTitle)]</label2>
+					<onclick>PlayMedia(&quot;$INFO[Window.Property(PlaylistLastEpisodeMenu6.1.Path)]&quot;)</onclick>
+                    <visible>!IsEmpty(Window.Property(PlaylistRandomEpisodeMenu6.1.EpisodeTitle))</visible>
+                </item>
+            </content>
+        </control>
+        <control type="image">
+            <posx>180</posx>
+            <posy>338</posy>
+            <width>137</width>
+            <height>137</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>Home/extras/featuredplay.png</texture>
+            <colordiffuse>ffffffff</colordiffuse>
+            <visible>Control.HasFocus(3041)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(3041)" reversible="false">
+                <effect type="zoom" start="70" end="100" center="auto" time="350" tween="back" easing="out" />
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>
+        </control>
+    </include>
+	
+	<!-- RECENTLY ADDED MUSIC -->	
+    <include name="RecentlyAddedAlbums">
+        <control type="list" id="3014">
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>646</onleft>
+            <onright>540</onright>
+            <onup>540</onup>
+            <ondown>3014</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>4</focusposition>
+            <orientation>vertical</orientation>
+            <visible>Container(540).HasFocus(4)</visible>
+            <animation type="Conditional" condition="Container(540).HasFocus(4)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="slide" start="2000,0" end="0,0" time="1500" />
+                <effect type="fade" start="0" end="100" time="400" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>19</posx>
+                    <posy>12</posy>
+                    <width>75</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true" diffuse="Home/extras/albumsmalldiffuse.png" fallback="noalbumsmall.png">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>8</posx>
+                    <posy>0</posy>
+                    <width>98</width>
+                    <height>98</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture>poster/squareborder.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="label">
+                    <posx>105</posx>
+                    <posy>12</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+					<scroll>false</scroll>
+                </control>
+                <control type="label">
+                    <posx>106</posx>
+                    <posy>35</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+					<scroll>false</scroll>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>106</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <visible>Control.HasFocus(3014)</visible>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                </control>
+                <control type="image">
+                    <posx>19</posx>
+                    <posy>12</posy>
+                    <width>75</width>
+                    <height>75</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture background="true" diffuse="Home/extras/albumsmalldiffuse.png" fallback="noalbumsmall.png">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>8</posx>
+                    <posy>0</posy>
+                    <width>98</width>
+                    <height>98</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture>poster/squareborder.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="label">
+                    <posx>105</posx>
+                    <posy>12</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>106</posx>
+                    <posy>35</posy>
+                    <width>365</width>
+                    <height>35</height>
+                    <font>recent2</font>
+					<scroll>false</scroll>
+                    <textcolor>ff808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>106</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+					<scroll>false</scroll>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(LatestAlbum.1.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestAlbum.1.Artist)]</label>
+                    <label2>$INFO[Window.Property(LatestAlbum.1.Title)]</label2>
+					<thumb>$INFO[Window.Property(LatestAlbum.1.year)]</thumb>
+                    <onclick>Playlist.Clear</onclick>
+                    <onclick>$INFO[Window.Property(LatestAlbum.1.Path),PlayMedia(,)]</onclick>
+                    <visible>!IsEmpty(Window.Property(LatestAlbum.1.Title))</visible>
+                </item>
+                <item id="2">
+                    <icon>$INFO[Window.Property(LatestAlbum.2.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestAlbum.2.Artist)]</label>
+                    <label2>$INFO[Window.Property(LatestAlbum.2.Title)]</label2>
+					<thumb>$INFO[Window.Property(LatestAlbum.2.year)]</thumb>
+                    <onclick>Playlist.Clear</onclick>
+                    <onclick>$INFO[Window.Property(LatestAlbum.2.Path),PlayMedia(,)]</onclick>
+                    <visible>!IsEmpty(Window.Property(LatestAlbum.2.Title))</visible>
+                </item>
+                <item id="3">
+                    <icon>$INFO[Window.Property(LatestAlbum.3.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestAlbum.3.Artist)]</label>
+                    <label2>$INFO[Window.Property(LatestAlbum.3.Title)]</label2>
+					<thumb>$INFO[Window.Property(LatestAlbum.3.year)]</thumb>
+                    <onclick>Playlist.Clear</onclick>
+                    <onclick>$INFO[Window.Property(LatestAlbum.3.Path),PlayMedia(,)]</onclick>
+                    <visible>!IsEmpty(Window.Property(LatestAlbum.3.Title))</visible>
+                </item>
+                <item id="4">
+                    <icon>$INFO[Window.Property(LatestAlbum.4.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestAlbum.4.Artist)]</label>
+                    <label2>$INFO[Window.Property(LatestAlbum.4.Title)]</label2>
+					<thumb>$INFO[Window.Property(LatestAlbum.4.year)]</thumb>
+                    <onclick>Playlist.Clear</onclick>
+                    <onclick>$INFO[Window.Property(LatestAlbum.4.Path),PlayMedia(,)]</onclick>
+                    <visible>!IsEmpty(Window.Property(LatestAlbum.4.Title))</visible>
+                </item>
+            </content>
+        </control>
+			<!-- FEATURED SONG -->
+			<control type="image">
+				<posx>15</posx>
+				<posy>256</posy>
+				<width>491</width>
+				<height>370</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>Home/extras/featuredfo.png</texture>
+				<colordiffuse>ffffffff</colordiffuse>	
+				<visible>Control.HasFocus(3015)</visible>
+				<animation type="Conditional" condition="Control.HasFocus(3015)" reversible="false">
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>		
+			</control>
+			<control type="list" id="3015">
+				<posx>17</posx>
+				<posy>273</posy>
+				<width>479</width>
+				<height>275</height>
+				<onleft>540</onleft>
+				<onright>646</onright>
+				<onup>540</onup>
+				<ondown>540</ondown>
+				<scrolltime>300</scrolltime>
+				<orientation>vertical</orientation>
+				<animation type="Conditional" condition="Container(540).HasFocus(4)" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>					
+				<animation type="WindowOpen" reversible="false">
+					<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowClose" reversible="false">
+					<effect type="fade" start="100" end="0" time="200" />
+				</animation>
+				<visible>Container(540).HasFocus(4)</visible>
+				<itemlayout height="275" width="479">	
+				</itemlayout>
+				<focusedlayout height="275" width="479">
+				  <control type="image">
+					  <posx>0</posx>
+					  <posy>38</posy>
+					  <width>479</width>
+					  <height>222</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture border="7,7,7,7">Home/extras/musicfeaturebg.png</texture>
+					  <colordiffuse>10ffffff</colordiffuse>
+					  <visible>!Control.HasFocus(3015)</visible>	
+				  </control>
+				  <control type="image">
+					  <posx>0</posx>
+					  <posy>38</posy>
+					  <width>479</width>
+					  <height>222</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture>Home/extras/musicfeaturebgfo.png</texture>
+					  <colordiffuse>ffffffff</colordiffuse>
+					  <animation effect="fade" start="0" end="100" time="400" delay="0" condition="Control.HasFocus(3015)">conditional</animation>
+					  <visible>!Control.HasFocus(540)</visible>
+					  <visible>!Control.HasFocus(646)</visible>
+					  <visible>!Control.HasFocus(3014)</visible>
+				  </control>		
+				  <control type="image">
+					  <posx>10</posx>
+					  <posy>48</posy>
+					  <width>201</width>
+					  <height>201</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture background="true" diffuse="infowrap/albumdiffuse.png">$INFO[ListItem.Icon]</texture>
+					  <colordiffuse>ffffffff</colordiffuse>				
+				  </control>				
+				  <control type="label">
+					  <posx>220</posx>
+					  <posy>178</posy>
+					  <width>300</width>
+					  <height>35</height>
+					  <font>homemenu3</font>
+					  <textcolor>ff9a9a9a</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label]</label>
+					  <visible>!Control.HasFocus(3015)</visible>
+				  </control>	
+				  <control type="label">
+					  <posx>220</posx>
+					  <posy>178</posy>
+					  <width>300</width>
+					  <height>35</height>
+					  <font>homemenu3</font>
+					  <textcolor>ff505050</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label]</label>
+					  <animation effect="fade" start="0" end="100" time="0" delay="0" condition="Control.HasFocus(3015)">conditional</animation>
+					  <visible>!Control.HasFocus(540)</visible>
+					  <visible>!Control.HasFocus(646)</visible>
+					  <visible>!Control.HasFocus(3014)</visible>
+				  </control>
+				  <control type="label">
+					  <posx>220</posx>
+					  <posy>212</posy>
+					  <width>600</width>
+					  <height>35</height>
+					  <font>recent2</font>
+					  <textcolor>ff7a7a7a</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label2]</label>
+				  </control>
+				</focusedlayout>	
+					<content>
+						<item id="1">
+							<icon>$INFO[Window.Property(RandomSong.1.Thumb)]</icon>
+							<label>$INFO[Window.Property(RandomSong.1.Title)]</label>
+							<label2>$INFO[Window.Property(RandomSong.1.Artist)][CR]$INFO[Window.Property(RandomSong.1.Album)]</label2>
+							<property name="ItemRating">$INFO[Window.Property(RandomEpisode.1.Rating)]</property>
+							<onclick>$INFO[Window.Property(RandomSong.1.Path),PlayMedia(,)]</onclick>
+							<visible>!IsEmpty(Window.Property(RandomSong.1.Title))</visible>
+						</item>
+					</content>
+				</control>
+			<control type="image">
+				<posx>58</posx>
+				<posy>353</posy>
+				<width>137</width>
+				<height>137</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>Home/extras/featuredplay.png</texture>
+				<colordiffuse>ffffffff</colordiffuse>	
+				<visible>Control.HasFocus(3015)</visible>
+				<animation type="Conditional" condition="Control.HasFocus(3015)" reversible="false">
+					<effect type="zoom" start="70" end="100" center="auto" time="350" tween="back" easing="out" />
+					<effect type="fade" start="0" end="100" time="250" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>					
+				<animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>			
+			</control>
+    </include>
+	
+	<!-- RECENTLY ADDED ADDONS -->	
+
+    <include name="RecentlyAddedAddons">
+		<!--
+        <control type="list" id="3016">
+            <posx>500r</posx>
+            <posy>410r</posy>
+            <width>484</width>
+            <height>416</height>
+            <onleft>646</onleft>
+            <onright>540</onright>
+            <onup>540</onup>
+            <ondown>3014</ondown>
+            <scrolltime>300</scrolltime>
+            <focusposition>4</focusposition>
+            <orientation>vertical</orientation>
+            <visible>Container(540).HasFocus(8)</visible>
+            <animation type="Conditional" condition="Container(540).HasFocus(8)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" />
+            </animation>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="550" delay="0" />
+                <effect type="slide" start="500,0" end="0,0" time="350" delay="600" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" />
+            </animation>
+            <itemlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentnf.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>19</posx>
+                    <posy>12</posy>
+                    <width>75</width>
+                    <height>75</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true" diffuse="Home/extras/albumsmalldiffuse.png" fallback="noalbumsmall.png">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>8</posx>
+                    <posy>0</posy>
+                    <width>98</width>
+                    <height>98</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture>poster/squareborder.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="label">
+                    <posx>105</posx>
+                    <posy>12</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+					<scroll>false</scroll>
+                </control>
+                <control type="label">
+                    <posx>106</posx>
+                    <posy>35</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>af808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>106</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="484">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>10ffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>484</width>
+                    <height>104</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>Home/extras/recentfo.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                    <visible>Control.HasFocus(3014)</visible>
+                    <animation effect="fade" start="8" end="100" time="200">Visible</animation>
+                </control>
+                <control type="image">
+                    <posx>19</posx>
+                    <posy>12</posy>
+                    <width>75</width>
+                    <height>75</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture background="true" diffuse="Home/extras/albumsmalldiffuse.png" fallback="noalbumsmall.png">$INFO[ListItem.ActualIcon]</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>8</posx>
+                    <posy>0</posy>
+                    <width>98</width>
+                    <height>98</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <texture>poster/squareborder.png</texture>
+                    <colordiffuse>ffffffff</colordiffuse>
+                </control>
+                <control type="label">
+                    <posx>105</posx>
+                    <posy>12</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>homemenu3</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>106</posx>
+                    <posy>35</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff808080</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <posx>106</posx>
+                    <posy>55</posy>
+                    <width>350</width>
+                    <height>35</height>
+                    <font>recent2</font>
+                    <textcolor>ff707070</textcolor>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Thumb]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <icon>$INFO[Window.Property(LatestAddon.1.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestAddon.1.Artist)]</label>
+                    <label2>$INFO[Window.Property(LatestAddon.1.Title)]</label2>
+					<thumb>$INFO[Window.Property(LatestAddon.1.Author)]</thumb>
+                    <onclick>Playlist.Clear</onclick>
+                    <onclick>$INFO[Window.Property(LatestAlbum.1.Path),PlayMedia(,)]</onclick>
+
+                </item>
+                <item id="2">
+                    <icon>$INFO[Window.Property(LatestAlbum.2.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestAlbum.2.Artist)]</label>
+                    <label2>$INFO[Window.Property(LatestAlbum.2.Title)]</label2>
+					<thumb>$INFO[Window.Property(LatestAlbum.2.year)]</thumb>
+                    <onclick>Playlist.Clear</onclick>
+                    <onclick>$INFO[Window.Property(LatestAlbum.2.Path),PlayMedia(,)]</onclick>
+                    <visible>!IsEmpty(Window.Property(LatestAlbum.2.Title))</visible>
+                </item>
+                <item id="3">
+                    <icon>$INFO[Window.Property(LatestAlbum.3.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestAlbum.3.Artist)]</label>
+                    <label2>$INFO[Window.Property(LatestAlbum.3.Title)]</label2>
+					<thumb>$INFO[Window.Property(LatestAlbum.3.year)]</thumb>
+                    <onclick>Playlist.Clear</onclick>
+                    <onclick>$INFO[Window.Property(LatestAlbum.3.Path),PlayMedia(,)]</onclick>
+                    <visible>!IsEmpty(Window.Property(LatestAlbum.3.Title))</visible>
+                </item>
+                <item id="4">
+                    <icon>$INFO[Window.Property(LatestAlbum.4.Thumb)]</icon>
+                    <label>$INFO[Window.Property(LatestAlbum.4.Artist)]</label>
+                    <label2>$INFO[Window.Property(LatestAlbum.4.Title)]</label2>
+					<thumb>$INFO[Window.Property(LatestAlbum.4.year)]</thumb>
+                    <onclick>Playlist.Clear</onclick>
+                    <onclick>$INFO[Window.Property(LatestAlbum.4.Path),PlayMedia(,)]</onclick>
+                    <visible>!IsEmpty(Window.Property(LatestAlbum.4.Title))</visible>
+                </item>
+            </content>
+        </control>
+		-->
+			<!-- FEATURED ADDON -->
+			<control type="image">
+				<posx>15</posx>
+				<posy>256</posy>
+				<width>491</width>
+				<height>370</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>Home/extras/featuredfo.png</texture>
+				<colordiffuse>ffffffff</colordiffuse>	
+				<visible>Control.HasFocus(3017)</visible>
+				<animation type="Conditional" condition="Control.HasFocus(3015)" reversible="false">
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>
+				<animation effect="fade" start="0" end="100" time="900" delay="800">WindowOpen</animation>	
+			</control>
+			<control type="list" id="3017">
+				<posx>17</posx>
+				<posy>273</posy>
+				<width>479</width>
+				<height>275</height>
+				<onleft>540</onleft>
+				<onright>652</onright>
+				<onup>540</onup>
+				<ondown>540</ondown>
+				<scrolltime>300</scrolltime>
+				<orientation>vertical</orientation>
+				<animation type="Conditional" condition="Container(540).HasFocus(8)" reversible="false">
+					<effect type="fade" start="0" end="100" time="250" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="250" />
+				</animation>					
+				<animation type="WindowOpen" reversible="false">
+					<effect type="slide" start="-2000,0" end="0,0" time="1500" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<animation type="WindowClose" reversible="false">
+					<effect type="fade" start="100" end="0" time="200" />
+				</animation>
+				<visible>Container(540).HasFocus(8)</visible>
+				<itemlayout height="275" width="479">	
+				</itemlayout>
+				<focusedlayout height="275" width="479">
+				  <control type="image">
+					  <posx>0</posx>
+					  <posy>38</posy>
+					  <width>479</width>
+					  <height>222</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture border="7,7,7,7">Home/extras/musicfeaturebg.png</texture>
+					  <colordiffuse>10ffffff</colordiffuse>
+					  <visible>!Control.HasFocus(3017)</visible>	
+				  </control>
+				  <control type="image">
+					  <posx>0</posx>
+					  <posy>38</posy>
+					  <width>479</width>
+					  <height>222</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture>Home/extras/musicfeaturebgfo.png</texture>
+					  <colordiffuse>ffffffff</colordiffuse>
+					  <animation effect="fade" start="0" end="100" time="400" delay="0" condition="Control.HasFocus(3017)">conditional</animation>
+					  <visible>!Control.HasFocus(540)</visible>
+					  <visible>!Control.HasFocus(652)</visible>
+					  <visible>!Control.HasFocus(3014)</visible>
+				  </control>		
+				  <control type="image">
+					  <posx>10</posx>
+					  <posy>48</posy>
+					  <width>201</width>
+					  <height>201</height>
+					  <aspectratio>stretch</aspectratio>
+					  <texture background="true" diffuse="infowrap/albumdiffuse.png">$INFO[ListItem.Icon]</texture>
+					  <colordiffuse>ffffffff</colordiffuse>				
+				  </control>				
+				  <control type="label">
+					  <posx>220</posx>
+					  <posy>178</posy>
+					  <width>260</width>
+					  <height>35</height>
+					  <font>homemenu3</font>
+					  <textcolor>ff9a9a9a</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label]</label>
+					  <visible>!Control.HasFocus(3017)</visible>
+				  </control>	
+				  <control type="label">
+					  <posx>220</posx>
+					  <posy>178</posy>
+					  <width>260</width>
+					  <height>35</height>
+					  <font>homemenu3</font>
+					  <textcolor>ff505050</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label]</label>
+					  <animation effect="fade" start="0" end="100" time="0" delay="0" condition="Control.HasFocus(3017)">conditional</animation>
+					  <visible>Control.HasFocus(3017)</visible>
+				  </control>
+				  <control type="textbox">
+					  <posx>220</posx>
+					  <posy>208</posy>
+					  <width>248</width>
+					  <height>40</height>
+					  <font>recent2</font>
+					  <textcolor>ff7a7a7a</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label2]</label>
+				  </control>
+				</focusedlayout>	
+					<content>
+						<item id="1">
+							<icon>$INFO[Window.Property(RandomAddon.1.Thumb)]</icon>
+							<label>$INFO[Window.Property(RandomAddon.1.Name)]</label>
+							<label2>$INFO[Window.Property(RandomAddon.1.Summary)]</label2>
+							<onclick>xbmc.activatewindow(10001,plugin://$INFO[Window.Property(RandomAddon.1.Path)]/,return)</onclick>
+							<visible>!IsEmpty(Window.Property(RandomAddon.1.Name))</visible>
+						</item>
+					</content>
+				</control>	
+
+    </include>
+</includes>
