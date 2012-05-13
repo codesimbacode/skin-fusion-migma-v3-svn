@@ -1,0 +1,331 @@
+<includes>
+
+	<!--TVSHOW and Music Fanart Info View -->
+
+	<include name="TVShowMusicDetail">
+		<control type="group">
+			<include>InfoOpenClose</include>
+			<include>MusicInfoOpenClose</include>	
+			<include>AddSource</include>
+			<include>ViewWindowOC</include>
+			<include>ContextFade</include>
+			<include>Keyboard</include>
+			<control type="group">
+				<visible>Control.IsVisible(508)</visible>
+				<posx>0</posx>
+				<posy>100</posy>
+
+			<control type="group">
+			<visible>Container.Content(Movies) |  [Container.Content(Artists) + !Skin.HasSetting(MusicLogos)] | [Container.Content(TVShows) + !Skin.HasSetting(Logos)]</visible>
+				<control type="image">
+					<posx>168</posx>
+					<posy>200</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>Home/extras/leftarrow.png</texture>
+					<colordiffuse>78ffffff</colordiffuse>
+					<animation effect="fade" time="400" delay="50">Visible</animation>
+					<visible>!Container(508).OnPrevious</visible>								
+				</control>			
+				<control type="image">
+					<posx>168</posx>
+					<posy>200</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>Home/extras/leftarrow.png</texture>
+					<colordiffuse>78ffffff</colordiffuse>
+					<animation type="Hidden">
+						<effect type="slide" start="-10" end="0" center="auto" time="300" reversible="false" />
+						<effect type="fade" start="100" end="0" time="300" reversible="false" />
+						<effect type="zoom" start="125" end="100" center="auto" time="300" reversible="false" />					
+					</animation>
+					<visible>Container(508).OnPrevious</visible>								
+				</control>
+				<control type="image">
+					<posx>1078</posx>
+					<posy>200</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture flipx="true">Home/extras/leftarrow.png</texture>
+					<colordiffuse>78ffffff</colordiffuse>
+					<animation effect="fade" time="400" delay="50">Visible</animation>
+					<visible>!Container(508).OnNext</visible>				
+				</control>
+				<control type="image">
+					<posx>1078</posx>
+					<posy>200</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture flipx="true">Home/extras/leftarrow.png</texture>
+					<colordiffuse>78ffffff</colordiffuse>
+					<animation type="Hidden">
+						<effect type="slide" start="10" end="0" center="auto" time="300" reversible="false" />
+						<effect type="fade" start="100" end="0" time="300" reversible="false" />
+						<effect type="zoom" start="125" end="100" center="auto" time="300" reversible="false" />					
+					</animation>
+					<visible>Container(508).OnNext</visible>				
+				</control>
+			</control>
+			
+			<!-- LOGOS ENABLED -->
+			
+			<control type="group">
+			<posy>46</posy>
+			<visible>[Container.Content(TVShows) + Skin.HasSetting(Logos)] | [Container.Content(Artists) + Skin.HasSetting(MusicLogos)]</visible>
+				<control type="image">
+					<posx>168</posx>
+					<posy>200</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>Home/extras/leftarrow.png</texture>
+					<colordiffuse>78ffffff</colordiffuse>
+					<animation effect="fade" time="400" delay="50">Visible</animation>
+					<visible>!Container(508).OnPrevious</visible>								
+				</control>			
+				<control type="image">
+					<posx>168</posx>
+					<posy>200</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>Home/extras/leftarrow.png</texture>
+					<colordiffuse>78ffffff</colordiffuse>
+					<animation type="Hidden">
+						<effect type="slide" start="-10" end="0" center="auto" time="300" reversible="false" />
+						<effect type="fade" start="100" end="0" time="300" reversible="false" />
+						<effect type="zoom" start="125" end="100" center="auto" time="300" reversible="false" />					
+					</animation>
+					<visible>Container(508).OnPrevious</visible>								
+				</control>
+				<control type="image">
+					<posx>1078</posx>
+					<posy>200</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture flipx="true">Home/extras/leftarrow.png</texture>
+					<colordiffuse>78ffffff</colordiffuse>
+					<animation effect="fade" time="400" delay="50">Visible</animation>
+					<visible>!Container(508).OnNext</visible>				
+				</control>
+				<control type="image">
+					<posx>1078</posx>
+					<posy>200</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture flipx="true">Home/extras/leftarrow.png</texture>
+					<colordiffuse>78ffffff</colordiffuse>
+					<animation type="Hidden">
+						<effect type="slide" start="10" end="0" center="auto" time="300" reversible="false" />
+						<effect type="fade" start="100" end="0" time="300" reversible="false" />
+						<effect type="zoom" start="125" end="100" center="auto" time="300" reversible="false" />					
+					</animation>
+					<visible>Container(508).OnNext</visible>				
+				</control>
+			</control>
+
+				<control type="wraplist" id="508">
+					<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Artists)</visible>
+					<visible>!substring(container.folderpath,plugin://plugin.video.xbmcflicks)</visible>
+					<visible>!substring(container.folderpath,plugin://plugin.video.apple.movie.trailers.lite)</visible>
+					<visible>!Skin.HasSetting(HideInfoWrap)</visible>
+					<posx>0</posx>
+					<posy>40</posy>
+					<width>1280</width>
+					<height>560</height>
+					<onleft>57</onleft>
+					<onright>57</onright>
+					<onup>300</onup>
+					<ondown>-</ondown>
+					<fadetime>300</fadetime>
+					<viewtype label="InfoWrap">bigwrap</viewtype>
+					<pagecontrol>68</pagecontrol>
+					<scrolltime>0</scrolltime>
+					<focusposition>1</focusposition>
+					<orientation>horizontal</orientation>
+					<preloaditems>6</preloaditems>
+
+					<itemlayout height="310" width="190">
+					</itemlayout>
+
+					<focusedlayout height="500" width="1280">
+						<control type="image">
+							<visible>Container.Content(Movies)</visible>
+							<posx>22</posx>
+							<posy>-17</posy>
+							<width>854</width>
+							<height>481</height>
+							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+							<fadetime>300</fadetime>
+							<texture background="true" diffuse="infowrap/fanartdiffuse.png" fallback="nofanart2.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+						</control>
+						<control type="image">
+							<visible>Container.Content(Movies)</visible>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>899</width>
+							<height>338</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>infowrap/fanartborder.png</texture>						
+						</control>
+						<control type="image">
+							<visible>Container.Content(Movies)</visible>
+							<posx>205</posx>
+							<posy>310</posy>
+							<width>35</width>
+							<height>35</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[ListItem.Overlay]</texture>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+
+			<control type="group">
+				<posy>20</posy>
+				<visible>Control.IsVisible(508)</visible>
+				<control type="grouplist">
+					<posx>0</posx>
+					<posy>90</posy>
+					<width>1280</width>
+					<height>40</height>
+					<align>center</align>
+					<orientation>horizontal</orientation>
+
+					<control type="label">
+						<posx>0</posx>
+						<width min="29" max="900">auto</width>
+						<height>36</height>
+						<font>movietitle3</font>
+						<textcolor>movietitleb</textcolor>
+						<scroll>false</scroll>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<visible>[Control.IsVisible(508) + !Window.IsVisible(VideoFiles)] + Container.Content(TVShows)</visible>
+						<visible>!Skin.HasSetting(Logos)</visible>
+					</control>
+					
+					<control type="label">
+						<posx>0</posx>
+						<width min="29" max="900">auto</width>
+						<height>36</height>
+						<font>movietitle3</font>
+						<textcolor>movietitleb</textcolor>
+						<scroll>false</scroll>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<visible>[Control.IsVisible(508) + !Window.IsVisible(VideoFiles) + !Skin.HasSetting(MusicLogos)] + Container.Content(Artists) | Container.Content(Movies)</visible>
+					</control>
+					
+					<control type="label">
+					<animation effect="fade" time="300" delay="200">VisibleChange</animation>
+						<posx>0</posx>
+						<width min="29" max="900">auto</width>
+						<height>36</height>
+						<font>movietitle3</font>
+						<textcolor>movietitleb</textcolor>
+						<scroll>false</scroll>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<visible>Container.Content(Artists) + Skin.HasSetting(MusicLogos) + IsEmpty(Control.GetLabel(43))</visible>
+					</control>
+				<control type="label">
+					<animation effect="fade" time="100" delay="00">VisibleChange</animation>
+						<posx>0</posx>
+						<width min="29" max="900">auto</width>
+						<height>36</height>
+						<font>movietitle3</font>
+						<textcolor>movietitleb</textcolor>
+						<scroll>false</scroll>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<visible>Container.Content(TVShows) + Skin.HasSetting(Logos) + IsEmpty(Control.GetLabel(44))</visible>
+					</control>
+				<include>MovieHDFlagsPoster</include>
+			</control>
+
+			<!-- LOGO -->
+			<control type="largeimage" id="44">
+				<posx>466</posx> 
+				<posy>46</posy> 
+				<width>335</width>
+				<height>130</height> 
+				<texture>$INFO[ListItem.path]logo.png</texture> 
+				<fadetime>100</fadetime> 
+				<aspectratio scalediffuse="false">keep</aspectratio> 
+				<visible>Container.Content(TVShows) + Skin.HasSetting(Logos)</visible>
+			</control>
+			
+			<!-- ARTIST LOGO -->
+			<control type="largeimage" id="43"> 
+				<posx>478</posx> 
+				<posy>46</posy> 
+				<width>335</width>
+				<height>130</height> 
+				<texture>$INFO[Skin.String(MusicFolder)]$INFO[ListItem.Artist,,/logo.png]</texture> 
+				<fadetime>100</fadetime> 
+				<aspectratio scalediffuse="false">keep</aspectratio> 
+				<visible>Container.Content(Artists) + Skin.HasSetting(MusicLogos)</visible>
+			</control>
+				
+				<control type="textbox">
+					<posx>215</posx>
+					<posy>450</posy>
+					<width>850</width>
+					<height>84</height>
+					<font>homemenu3</font>
+					<textcolor>movietitleb</textcolor>
+					<scroll>true</scroll>
+					<align>justify</align>
+					<autoscroll delay="12000" time="3000" repeat="10000" />
+					<label>$INFO[ListItem.Plot]</label>
+					<visible>Container.Content(Movies) |  [Container.Content(Artists) + !Skin.HasSetting(MusicLogos)] | [Container.Content(TVShows) + !Skin.HasSetting(Logos)]</visible>
+				</control>
+				<control type="textbox">
+					<posx>215</posx>
+					<posy>450</posy>
+					<width>850</width>
+					<height>110</height>
+					<font>homemenu3</font>
+					<textcolor>movietitleb</textcolor>
+					<scroll>true</scroll>
+					<align>justify</align>
+					<autoscroll delay="12000" time="3000" repeat="10000" />
+					<visible>Container.Content(Artists) + !Skin.HasSetting(MusicLogos)</visible>
+					<label>$INFO[ListItem.Property(Artist_Description)]</label>
+				</control>
+				
+				<!-- LOGOS ENABLED-->
+				<control type="textbox">
+					<posx>215</posx>
+					<posy>492</posy>
+					<width>850</width>
+					<height>84</height>
+					<font>homemenu3</font>
+					<textcolor>movietitleb</textcolor>
+					<scroll>true</scroll>
+					<align>justify</align>
+					<autoscroll delay="12000" time="3000" repeat="10000" />
+					<label>$INFO[ListItem.Plot]</label>
+					<visible>Container.Content(TVShows) + Skin.HasSetting(Logos)</visible>
+				</control>
+				<control type="textbox">
+					<posx>215</posx>
+					<posy>492</posy>
+					<width>850</width>
+					<height>110</height>
+					<font>homemenu3</font>
+					<textcolor>movietitleb</textcolor>
+					<scroll>true</scroll>
+					<align>justify</align>
+					<autoscroll delay="12000" time="3000" repeat="10000" />
+					<visible>Container.Content(Artists) + Skin.HasSetting(MusicLogos)</visible>
+					<label>$INFO[ListItem.Property(Artist_Description)]</label>
+				</control>
+			</control>
+		</control>
+	</include>
+
+</includes>

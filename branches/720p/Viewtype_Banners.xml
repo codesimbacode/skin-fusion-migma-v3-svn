@@ -1,0 +1,250 @@
+<includes>
+
+<!-- EPISODES VIEW -->
+	
+	<include name="Banners">
+	<control type="group">
+		<include>InfoOpenClose</include>
+		<include>ViewWindowOC</include>
+		<include>ContextFade</include>
+		<include>Keyboard</include>
+		
+		<control type="fixedlist" id="709">
+			<viewtype label="Banners">list</viewtype>
+			<posx>62</posx>
+			<posy>110</posy>
+			<width>585</width>
+			<height>502</height>
+			<scrolltime>275</scrolltime>
+			<orientation>vertical</orientation>
+			<movement>4</movement>
+			<focusposition>2</focusposition>
+			<onup>709</onup>
+			<ondown>709</ondown>
+			<onleft>300</onleft>
+			<onright>710</onright>
+			<pagecontrol>710</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<visible>Window.IsActive(25)</visible>
+			<visible>Container.Content(TVShows)</visible>
+			<visible>!Skin.HasSetting(HideBanners)</visible>
+			<itemlayout width="585" height="178">
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>577</width>
+					<height>149</height>
+					<texture border="12">whitepanel2.png</texture>
+					<colordiffuse>15ffffff</colordiffuse>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<posx>4</posx>
+					<posy>4</posy>
+					<width>569</width>
+					<height>105</height>
+					<visible>!Skin.HasSetting(Banner.jpg)</visible>
+					<texture background="true" diffuse="banner/bannerdiff.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<!-- BANNER.JPG SETTING -->
+				<control type="image">
+					<posx>4</posx>
+					<posy>4</posy>
+					<width>569</width>
+					<height>105</height>
+					<visible>Skin.HasSetting(Banner.jpg)</visible>
+					<texture background="true" diffuse="banner/bannerdiff.png">$INFO[ListItem.Path]banner.jpg</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+
+				<control type="label">
+					<posx>10</posx>
+					<posy>97</posy>
+					<width>633</width>
+					<height>60</height>
+					<align>left</align>
+					<label>$INFO[ListItem.Title]</label>
+					<font>homemenu3</font>
+					<textcolor>e0808080</textcolor>
+					<selectedcolor>taskbar</selectedcolor>
+				</control>				
+			</itemlayout>
+			
+			<focusedlayout width="585" height="178">
+				<control type="image">
+					<posx>145</posx>
+					<posy>27</posy>
+					<width>285</width>
+					<height>100</height>
+					<texture>banner/bannerfo.png</texture>
+					<aspectratio>stretch</aspectratio>
+						<animation type="conditional" condition="true" reversible="false">
+							<effect type="zoom" start="100" end="200" time="0" center="auto"/>
+						</animation>
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" time="250" delay="325"/>
+						</animation>
+				</control>			
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>577</width>
+					<height>149</height>
+					<texture border="12">whitepanel2.png</texture>
+					<aspectratio>stretch</aspectratio>
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="10" end="100" time="300" />
+							<effect type="zoom" start="93" end="100" time="200" center="auto"/>
+						</animation>
+				</control>
+				<control type="image">
+					<posx>4</posx>
+					<posy>4</posy>
+					<width>569</width>
+					<height>105</height>
+					<visible>!Skin.HasSetting(Banner.jpg)</visible>
+					<texture background="true" diffuse="banner/bannerdiff.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>stretch</aspectratio>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="93" end="100" time="200" center="auto"/>
+						</animation>
+				</control>
+				<!-- BANNER.JPG SETTING -->
+				<control type="image">
+					<posx>4</posx>
+					<posy>4</posy>
+					<width>569</width>
+					<height>105</height>
+					<visible>Skin.HasSetting(Banner.jpg)</visible>
+					<texture background="true" diffuse="banner/bannerdiff.png">$INFO[ListItem.Path]banner.jpg</texture>
+					<aspectratio>stretch</aspectratio>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="93" end="100" time="200" center="auto"/>
+						</animation>
+				</control>
+				<control type="label">
+					<posx>10</posx>
+					<posy>97</posy>
+					<width>633</width>
+					<height>60</height>
+					<align>left</align>
+					<label>$INFO[ListItem.Title]</label>
+					<font>homemenu3</font>
+					<textcolor>ff404040</textcolor>
+					<selectedcolor>taskbar</selectedcolor>
+				</control>	
+					<control type="image">
+						<posy>25</posy>
+						<posx>880</posx>
+						<width>30</width>
+						<height>35</height>
+						<aspectratio>keep</aspectratio>
+						<texture>watched.png</texture>
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" time="300" />
+						</animation>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+						<visible>Skin.HasSetting(WatchedOverlays)</visible>
+					</control>
+					<control type="image">
+						<posy>25</posy>
+						<posx>880</posx>
+						<width>41</width>
+						<height>35</height>
+						<aspectratio>keep</aspectratio>
+						<texture>unwatched.png</texture>
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" time="300" />
+						</animation>
+						<visible>stringcompare(ListItem.Overlay,OverlayUnwatched.png)</visible>
+					</control>
+
+			</focusedlayout>
+		</control>
+
+
+		<control type="group">
+			<visible>Control.IsVisible(709)</visible>
+				<control type="image">
+					<posx>650</posx>
+					<posy>110</posy>
+					<width>576</width>
+					<height>505</height>
+					<aspectratio>stretch</aspectratio>
+					<texture border="12">whitepanel2.png</texture>
+					<colordiffuse>ffffffff</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>654</posx>
+					<posy>114</posy>
+					<width>568</width>
+					<height>319</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>350</fadetime>
+					<texture diffuse="banner/fandiff.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				</control>
+				<control type="image">
+					<posx>654</posx>
+					<posy>433</posy>
+					<width>568</width>
+					<height>36</height>
+					<aspectratio>stretch</aspectratio>
+					<texture border="12">grey2.png</texture>
+					<colordiffuse>35ffffff</colordiffuse>
+				</control>
+				<control type="label">
+					<posx>670</posx>
+					<posy>433</posy>
+					<width>365</width>
+					<height>35</height>
+					<font>about</font>
+					<textcolor>ff474747</textcolor>
+					<scroll>false</scroll>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>[UPPERCASE]$INFO[ListItem.Year,, • ]$INFO[ListItem.Genre][/UPPERCASE]</label>
+				   <visible>!IsEmpty(ListItem.foldername) + !substring(Container.Listitem.Label,..,left)</visible>
+				</control>
+				<control type="image">
+					<description>Rating Info</description>
+					<posx>1050</posx>
+					<posy>371</posy>
+					<width>165</width>
+					<height>165</height>
+					<info>ListItem.StarRating</info>
+					<fadetime>250</fadetime>
+					<visible>!IsEmpty(ListItem.foldername) + !substring(Container.Listitem.Label,..,left)</visible>
+				</control>
+				<control type="textbox">
+					<posx>670</posx>
+					<posy>482</posy>
+					<width>536</width>
+					<height>121</height>
+					<align>justify</align>
+					<info>ListItem.Plot</info>
+					<font>about</font>
+					<textcolor>ff505050</textcolor>
+					<autoscroll delay="3500" time="3000" repeat="10000" />
+				</control>
+		</control>
+		<!-- Scroll Bar -->
+
+		<control type="scrollbar" id="710">
+			<posx>1240</posx>
+			<posy>130</posy>
+			<width>5</width>
+			<height>450</height>
+			<visible allowhiddenfocus="true">Control.IsVisible(709) + Control.HasFocus(710)</visible>
+			<texturesliderbackground>white2.png</texturesliderbackground>
+			<textureslidernibfocus>white3v.png</textureslidernibfocus>
+			<onleft>709</onleft>
+			<onright>-</onright>
+			<showonepage>false</showonepage>
+			<orientation>vertical</orientation>
+			<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(710)">Conditional</animation>
+		</control>
+	</control>
+	</include>
+	
+</includes>

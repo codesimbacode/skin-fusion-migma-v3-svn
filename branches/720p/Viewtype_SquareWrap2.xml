@@ -1,0 +1,184 @@
+<includes>
+
+	<include name="SquareWrap">
+	<control type="group">
+	<include>InfoOpenClose</include>
+	<include>ViewWindowOC</include>
+	<include>ContextFade</include>	
+	<include>Keyboard</include>
+	<visible>!Window.IsVisible(1122)</visible>
+		<animation effect="fade" start="100" end="15" time="600" condition="Window.IsVisible(139)">Conditional</animation>
+		<control type="group">
+			<visible>Control.IsVisible(655)</visible>	
+			<posx>0</posx>
+			<posy>80</posy>
+		<control type="group">
+			<control type="wraplist" id="655">
+				<visible>substring(container.folderpath,plugin://plugin.program.advanced.launcher) | Window.IsActive(1)</visible>
+				<posx>-150</posx>
+				<posy>40</posy>
+				<width>1700</width>
+				<height>560</height>
+				<onleft>655</onleft>
+				<onright>655</onright>
+				<onup>300</onup>
+				<ondown>601</ondown>
+				<viewtype label="SquareWrap">wrap</viewtype>
+				<pagecontrol>601</pagecontrol>
+				<scrolltime>250</scrolltime>
+				<focusposition>1</focusposition>
+				<orientation>horizontal</orientation>
+				<itemlayout height="430" width="335">
+					<control type="label">
+					  <posx>40</posx>
+					  <posy>42</posy>
+					  <width>275</width>
+					  <height>35</height>
+					  <font>big2</font>
+					  <textcolor>95ffffff</textcolor>
+					  <scroll>false</scroll>
+					  <align>left</align>
+					  <label>$INFO[ListItem.Label]</label>
+					  <visible>!Skin.HasSetting(HideLabelSquareWrapViews)</visible>
+				  	</control>
+					<control type="image">
+						<posx>-18</posx>
+						<posy>52</posy>
+						<width>353</width>
+						<height>339</height>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>80FFFFFF</colordiffuse>
+						<texture background="true">poster/postershadow.png</texture>
+					</control>
+					<control type="image">
+						<posx>2</posx>
+						<posy>65</posy>
+						<width>312</width>
+						<height>312</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true" fallback="noalbum.png">$INFO[ListItem.Thumb]</texture>
+					</control>
+				</itemlayout>
+						
+				<focusedlayout height="310" width="335">
+					<control type="image">
+						<posx>-67</posx>
+						<posy>-2</posy>
+						<width>446</width>
+						<height>446</height>
+						<aspectratio>stretch</aspectratio>
+						<texture border="12">whitepanel2.png</texture>
+						<animation type="focus">
+							<effect type="fade" start="50" end="100" time="150" />
+							<effect type="zoom" start="39,55,334,334" end="0,0,446,446" time="250" />
+						</animation>
+						<animation reversible="false" effect="fade" start="100" end="0" time="0">unfocus</animation>
+						<visible>!Control.IsVisible(601) + !Control.HasFocus(300)</visible>
+					</control>
+					<control type="image">
+						<posx>-18</posx>
+						<posy>52</posy>
+						<width>353</width>
+						<height>339</height>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>80FFFFFF</colordiffuse>
+						<texture background="true">poster/postershadow.png</texture>
+					</control>								
+					<control type="image">
+						<posx>0</posx>
+						<posy>65</posy>
+						<width>312</width>
+						<height>312</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true" fallback="noalbum.png">$INFO[ListItem.Thumb]</texture>
+						<animation reversible="false" effect="zoom" start="100" end="135" center="auto" time="250">focus</animation>
+						<animation reversible="false" effect="zoom" start="135" end="100" center="auto" time="250">unfocus</animation>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+
+
+	<control type="group">
+			<posy>0</posy>
+			<visible>Control.IsVisible(655)</visible>
+			<animation effect="slide" start="0,0" end="65,-65" time="250" condition="Control.HasFocus(601) | Control.HasFocus(300)">conditional</animation>	
+		<control type="grouplist">
+			<posx>125</posx>
+			<posy>488</posy>
+			<width>1280</width>
+			<height>40</height>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<control type="label">
+				<posx>0</posx>
+				<width min="29" max="800">auto</width>
+				<height>38</height>
+				<font>movietitle6</font>
+				<textcolor>E0F0F0F0</textcolor>
+				<scroll>false</scroll>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+			</control>
+		</control>
+		<control type="label">
+			<posx>125</posx>
+			<posy>518</posy>
+			<width>914</width>
+			<height>35</height>
+			<font>aired</font>
+			<textcolor>movietitleb2</textcolor>
+			<scroll>true</scroll>
+			<align>left</align>
+			<aligny>center</aligny>
+			<label>[UPPERCASE]$INFO[ListItem.Property(Addon.Version),, • ]$INFO[ListItem.Property(Addon.Creator)][/UPPERCASE]</label>
+		</control>						
+	</control>
+			<control type="label">
+				<posx>125</posx>
+				<posy>518</posy>
+				<width>450</width>
+				<height>35</height>
+				<font>aired</font>
+				<textcolor>movietitleb2</textcolor>
+				<scroll>true</scroll>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollspeed>40</scrollspeed>
+				<label>[UPPERCASE]$INFO[ListItem.Studio,, • ]$INFO[ListItem.Premiered,, • ]$INFO[ListItem.Genre][/UPPERCASE]</label>
+				<animation effect="slide" start="0,0" end="65,-65" time="250" condition="Control.HasFocus(601) | Control.HasFocus(300)">conditional</animation>	
+			</control>
+			<control type="label" id="21">
+                <description>Info</description>
+                <posx>125</posx>
+                <posy>580</posy>
+                <width>832</width>
+				<font>infotab</font>
+                <label>press down twice for info</label>
+                <textcolor>HomeMenuGrey</textcolor>
+                <align>left</align>
+				<visible>Control.IsVisible(655) + !Control.HasFocus(601)</visible>
+				<visible>!Control.HasFocus(300)</visible>
+				<visible>!ListItem.IsFolder</visible>
+				<visible>substring(container.folderpath,plugin://plugin.program.advanced.launcher)</visible>
+                <animation effect="fade" start="0" end="100" time="600" delay="1500">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="600">Hidden</animation>
+            </control>
+	</control>
+		<control type="scrollbar" id="601">
+			<posx>0</posx>
+			<posy>649</posy>
+			<width>1280</width>
+			<height>5</height>
+			<visible allowhiddenfocus="true">Control.IsVisible(655) + Control.HasFocus(601)</visible>
+			<texturesliderbackground>white2.png</texturesliderbackground>
+			<textureslidernibfocus>white3.png</textureslidernibfocus>
+			<onup>655</onup>
+			<ondown condition="substring(container.folderpath,plugin://plugin.program.advanced.launcher)">ActivateWindow(1122)</ondown>
+			<showonepage>true</showonepage>
+			<orientation>horizontal</orientation>
+			<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(601)">Conditional</animation>
+		</control>
+</control>
+	</include>
+	
+</includes>

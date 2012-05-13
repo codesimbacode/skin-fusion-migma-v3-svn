@@ -1,0 +1,100 @@
+<includes>
+
+	<!--Poster Group-->
+	<include name="MusicPoster">
+
+		<control type="group">
+		<include>Keyboard</include>
+					<control type="label">
+				<posx>10</posx>
+				<posy>110</posy>
+				<width>257</width>
+				<height>55</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>options</font>
+				<textcolor>list</textcolor>
+				<label>$INFO[ListItem.FileNameAndPath]</label>		
+			</control>
+			<visible>Control.IsVisible(521)</visible>
+			<posx>0</posx>
+			<posy>80</posy>			
+			<control type="wraplist" id="521">
+				<visible>Container.Content(Artists) | Container.Content(Albums)</visible>
+				<posx>-165</posx>
+				<posy>40</posy>
+				<width>1600</width>
+				<height>560</height>
+				<onleft>57</onleft>
+				<onright>57</onright>
+				<onup>300</onup>
+				<ondown>64</ondown>
+				<viewtype label="MusicPoster">bigwrap</viewtype>
+				<pagecontrol>64</pagecontrol>
+				<scrolltime>250</scrolltime>
+				<focusposition>4</focusposition>
+				<orientation>horizontal</orientation>
+				<preloaditems>6</preloaditems>
+				<itemlayout height="310" width="166">
+					<control type="image">
+						<posx>2</posx>
+						<posy>95</posy>
+						<width>164</width>
+						<height>164</height>
+						<bordersize>2</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<texture border="0,0,0,0" background="true" diffuse="poster/posterdiffusesmall.png">$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="image">
+						<posx>2</posx>
+						<posy>256</posy>
+						<width>164</width>
+						<height>164</height>
+						<bordersize>2</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<texture border="0,0,0,0" background="true" flipy="true" diffuse="poster/posterreflectdiffuse.png">$INFO[ListItem.Icon]</texture>
+						<colordiffuse>42ffffff</colordiffuse>
+					</control>
+				</itemlayout>
+				<focusedlayout height="310" width="279">
+					<control type="image">
+						<posx>11</posx>
+						<posy>50</posy>
+						<width>259</width>
+						<height>270</height>
+						<aspectratio>stretch</aspectratio>
+						<texture border="0,0,10,0" background="true" diffuse="poster/posterdiffuse.png">$INFO[ListItem.Icon]</texture>
+						<animation reversible="false" effect="zoom" start="10,74,164,164" end="20,28,259,262" time="200">focus</animation>
+						<animation reversible="false" effect="zoom" end="10,74,164,164" start="20,28,259,262" time="200">unfocus</animation>
+					</control>
+					<control type="image">
+						<posx>1</posx>
+						<posy>42</posy>
+						<width>289</width>
+						<height>289</height>
+						<aspectratio>stretch</aspectratio>
+						<texture border="0,0,0,0">poster/glassoverlay.png</texture>
+						<animation reversible="false" effect="zoom" start="-18,61,183,183" end="-24,0,289,289" time="200">focus</animation>
+						<animation reversible="false" effect="zoom" end="-18,61,183,183" start="-24,0,289,289" time="200">unfocus</animation>						
+					</control>
+					<control type="image">
+						<posx>205</posx>
+						<posy>310</posy>
+						<width>35</width>
+						<height>35</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[ListItem.Overlay]</texture>
+						<animation type="focus">
+							<effect type="fade" start="0" end="100" time="0" />
+							<effect type="slide" start="0,0" end="40,40" time="0" />
+						</animation>
+						<animation type="unfocus">
+							<effect type="fade" start="100" end="0" time="200" />
+							<effect type="slide" end="0,0" start="40,40" time="200" />
+						</animation>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+</includes>

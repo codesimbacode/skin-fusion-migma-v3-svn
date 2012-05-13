@@ -1,0 +1,96 @@
+<window type="window" id="9505">
+<defaultcontrol always="true">2</defaultcontrol>
+<allowoverlay>yes</allowoverlay>
+  
+<controls>
+	
+ 	<control type="image">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1280</width>
+		<height>720</height>
+		<aspectratio>stretch</aspectratio>
+		<texture>Home/bg2.png</texture>
+	</control>	
+	<control type="image">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1280</width>
+		<height>720</height>
+		<aspectratio>stretch</aspectratio>
+		<texture>black.png</texture>
+		<colordiffuse>73FFFFFF</colordiffuse>
+	</control>  
+	<control type="image">
+		<posx>110</posx>
+		<posy>130</posy>
+		<width>1072</width>
+		<height>496</height>
+		<aspectratio>stretch</aspectratio>
+		<texture>settings/bg.png</texture>
+		<colordiffuse>FFFFFFFF</colordiffuse>
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="550" delay="300" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="350" delay="0" />
+		</animation>
+	</control>  
+	<control type="image">
+		<posx>110</posx>
+		<posy>130</posy>
+		<width>1072</width>
+		<height>496</height>
+		<aspectratio>stretch</aspectratio>
+		<texture>settings/bg.png</texture>
+		<colordiffuse>E9FFFFFF</colordiffuse>
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="550" delay="300" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="350" delay="250" />
+		</animation>
+	</control> 
+	<control type="image">
+		<posx>130</posx>
+		<posy>230</posy>
+		<width>1030</width>
+		<height>253</height>
+		<aspectratio>stretch</aspectratio>
+		<texture>settings/logo.png</texture>
+		<colordiffuse>1CFFFFFF</colordiffuse>
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="550" delay="300" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="350" delay="250" />
+		</animation>
+	</control> 	
+	<control type="textbox" id="2">
+      <description>My first text box control</description>
+      <posx>130</posx>
+      <posy>145</posy>
+      <width>1032</width>
+      <height>476</height>
+      <font>about</font>
+	  <align>justify</align>
+      <textcolor>DFFFFFFF</textcolor>
+	  <label>XBMC is an award-winning free and open source (GPL) software media player and entertainment hub for digital media. XBMC is available for Linux, Mac OS X (Leopard, Tiger and Apple TV) and Microsoft Windows, as well as the original Xbox game console. Created in 2003 by a group of like minded programmers, XBMC is a non-profit project run and developed by volunteers located around the world. More than 50 software developers have contributed to XBMC, and 100-plus translators have worked to expand its reach, making it available in more than 30 languages.
+
+While XBMC functions very well as a standard media player application for your computer, it has been designed to be the perfect companion for your HTPC. Supporting an almost endless range of remote controls, and combined with its beautiful interface and powerful skinning engine, XBMC feels very natural to use from the couch and is the ideal solution for your home theater.
+
+Currently XBMC can be used to play almost all popular audio and video formats around. It was designed for network playback, so you can stream your multimedia from anywhere in the house or directly from the internet using practically any protocol available. Use your media as-is: XBMC can play CDs and DVDs directly from the disk or image file, almost all popular archive formats from your hard drive, and even files inside ZIP and RAR archives. It will even scan all of your media and automatically create a personalized library complete with boxcovers, descriptions, and fanart. There are playlist and slideshow functions, a weather forecast feature and many audio visualizations. Once installed, your computer will become a fully functional multimedia jukebox.
+
+It is difficult to put into words all that XBMC can do, so take the plunge and Try XBMC Today</label>
+	  <animation type="WindowOpen" reversible="false">
+		  <effect type="fade" start="0" end="100" time="550" delay="600" />
+	  </animation>
+	  <animation type="WindowClose" reversible="false">
+		  <effect type="fade" start="100" end="0" time="250" delay="0" />
+	  </animation>
+	</control>
+
+<include>nav</include> 
+</controls>
+  
+</window>

@@ -1,0 +1,264 @@
+<includes>
+
+	
+	<include name="Icon3">
+
+		<control type="group">
+		<include>ContextFade</include>
+		<include>AddSource</include>		
+		<include>MusicInfoOpenClose</include>	
+		<include>InfoOpenClose</include>
+		<include>Keyboard</include>
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="550" delay="0" />
+			<effect type="zoom" start="155" end="100" time="350" center="auto" delay="0" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="350" delay="0" />
+			<effect type="zoom" start="100" end="155" time="300" center="auto" delay="0" />
+		</animation>
+		
+
+
+
+
+		
+			
+			<control type="panel" id="581">
+				<posx>144</posx>
+				<posy>125</posy>
+				<width>1008</width>
+				<height>545</height>
+				<onleft>581</onleft>
+				<onright>581</onright>
+				<onup>300</onup>
+				<ondown>582</ondown>
+				<orientation>horizontal</orientation>
+				<scrolltime>150</scrolltime>
+				<viewtype label="icon3">icon</viewtype>
+				<pagecontrol>582</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<visible>Container.Content(Movies) | Container.Content(TVShows)</visible>
+				<visible>!Skin.HasSetting(HideIcon3)</visible>
+				<itemlayout height="270" width="144">
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>143</width>
+						<height>208</height>
+						<texture>poster/postershadow.png</texture>
+						<align>bottom</align>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>80ffffff</colordiffuse>
+						<animation type="conditional" condition="true" reversible="false">
+							<effect type="fade" start="0" end="100" time="100" />
+							<effect type="slide" start="0,0" end="-9,-8" time="0" />
+						</animation>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>125</width>
+						<height>190</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<align>bottom</align>
+						<aspectratio>scale</aspectratio>
+					</control>
+
+				</itemlayout>
+				
+
+
+						
+				<focusedlayout height="264" width="144">
+
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>141</width>
+						<height>206</height>
+						<texture border="12">whitepanel2.png</texture>
+						<align>bottom</align>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>f4ffffff</colordiffuse>
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" time="100" />
+							<effect type="slide" start="0,0" end="-8,-8" time="0" />
+							<effect type="zoom" start="115" end="100" time="300" center="auto" tween="back" easing="out" />
+						</animation>
+					</control>
+
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>125</width>
+						<height>190</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<align>left</align>
+						<aspectratio>scale</aspectratio>
+
+							<animation type="Focus" reversible="false">
+							<effect type="zoom" start="115" end="100" time="300" center="auto" tween="back" easing="out" />
+						</animation>
+					</control>
+				
+
+			<control type="label">
+				<posx>0</posx>
+				<posy>192</posy>
+				<width>1280</width>
+				<height>38</height>
+				<font>recent</font>
+				<textcolor>movietitleb</textcolor>
+				<scroll>false</scroll>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<visible>Container(581).Column(0) | Container(581).Column(1) | Container(581).Column(2)</visible>
+			</control>
+			<control type="image">
+                <description>Rating Info</description>
+                <posx>-14</posx>
+                <posy>155</posy>
+                <width>165</width>
+                <height>165</height>
+                <info>ListItem.StarRating</info>
+				<fadetime>250</fadetime>
+				<visible>Container(581).Column(0) | Container(581).Column(1) | Container(581).Column(2)</visible>
+				<visible>!IsEmpty(ListItem.foldername) + !substring(Container.Listitem.Label,..,left)</visible>				
+            </control>
+			<control type="label">
+				<posx>0</posx>
+				<posy>217</posy>
+				<width>1280</width>
+				<height>35</height>
+				<font>aired</font>
+				<textcolor>movietitleb</textcolor>
+				<scroll>true</scroll>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>MOVIE COLLECTION</label>
+				<visible>Container(581).Column(0) | Container(581).Column(1) | Container(581).Column(2)</visible>
+				<visible>Control.IsVisible(581) + IsEmpty(ListItem.foldername)</visible>
+				<visible>!ListItem.IsFolder</visible>
+			</control>		
+			<control type="label">
+				<posx>60</posx>
+				<posy>192</posy>
+				<width>1280</width>
+				<height>38</height>
+				<font>recent</font>
+				<textcolor>movietitleb</textcolor>
+				<scroll>false</scroll>
+				<align>center</align>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<visible>Container(581).Column(3)</visible>
+			</control>
+			<control type="image">
+                <description>Rating Info</description>
+                <posx>-21</posx>
+                <posy>155</posy>
+                <width>165</width>
+                <height>165</height>
+                <info>ListItem.StarRating</info>
+				<fadetime>250</fadetime>
+				<visible>Container(581).Column(3)</visible>
+				<visible>!IsEmpty(ListItem.foldername) + !substring(Container.Listitem.Label,..,left)</visible>				
+            </control>
+			<control type="label">
+				<posx>60</posx>
+				<posy>217</posy>
+				<width>1280</width>
+				<height>35</height>
+				<font>aired</font>
+				<textcolor>movietitleb2</textcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>MOVIE COLLECTION</label>
+				<visible>Container(581).Column(3)</visible>
+				<visible>Control.IsVisible(581) + IsEmpty(ListItem.foldername)</visible>
+			</control>			
+			<control type="label">
+				<posx>125</posx>
+				<posy>192</posy>
+				<width>1280</width>
+				<height>38</height>
+				<font>recent</font>
+				<textcolor>movietitleb</textcolor>
+				<scroll>false</scroll>
+				<align>right</align>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<visible>Container(581).Column(4) | Container(581).Column(5) | Container(581).Column(6)</visible>
+			</control>	
+			<control type="image">
+                <description>Rating Info</description>
+                <posx>-26</posx>
+                <posy>155</posy>
+                <width>165</width>
+                <height>165</height>
+                <info>ListItem.StarRating</info>
+				<fadetime>250</fadetime>
+				<visible>Container(581).Column(4) | Container(581).Column(5) | Container(581).Column(6)</visible>
+				<visible>!IsEmpty(ListItem.foldername) + !substring(Container.Listitem.Label,..,left)</visible>				
+            </control>
+			<control type="label">
+				<posx>125</posx>
+				<posy>217</posy>
+				<width>1280</width>
+				<height>35</height>
+				<font>aired</font>
+				<textcolor>movietitleb2</textcolor>
+				<scroll>true</scroll>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>MOVIE COLLECTION</label>
+				<visible>Container(581).Column(4) | Container(581).Column(5) | Container(581).Column(6)</visible>
+				<visible>Control.IsVisible(581) + IsEmpty(ListItem.foldername)</visible>
+			</control>		
+				</focusedlayout>
+		</control>
+
+	
+<control type="group">
+<visible>Control.IsVisible(581)</visible>
+
+				<control type="image">
+					<posx>90</posx>
+					<posy>338</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>Home/extras/leftarrow.png</texture>
+					<colordiffuse>98ffffff</colordiffuse>							
+				</control>			
+
+
+				<control type="image">
+					<posx>1154</posx>
+					<posy>338</posy>
+					<width>34</width>
+					<height>34</height>
+					<aspectratio>stretch</aspectratio>
+					<texture flipx="true">Home/extras/leftarrow.png</texture>
+					<colordiffuse>98ffffff</colordiffuse>		
+				</control>
+</control>
+	
+		<control type="scrollbar" id="582">
+			<posx>0</posx>
+			<posy>649</posy>
+			<width>1280</width>
+			<height>5</height>
+			<visible allowhiddenfocus="true">Control.IsVisible(581) + Control.HasFocus(582)</visible>
+			<texturesliderbackground>white2.png</texturesliderbackground>
+			<textureslidernibfocus>white3.png</textureslidernibfocus>
+			<onup>581</onup>
+			<onleft>582</onleft>
+			<onright>582</onright>
+			<showonepage>false</showonepage>
+			<orientation>horizontal</orientation>
+			<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(582)">Conditional</animation>
+		</control>				
+		</control>
+	</include>
+	
+</includes>

@@ -1,0 +1,196 @@
+<includes>
+
+	
+	<include name="PictureShelf">
+			<visible>Control.IsVisible(545)</visible>
+			<visible>Container.Content(Episodes)</visible>
+			<include>Keyboard</include>
+		<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1280</width>
+				<height>720</height>
+				<aspectratio>keep</aspectratio>
+				<fadetime>350</fadetime>
+				<texture diffuse="shelf/bgdiffuse.png">$INFO[ListItem.Icon]</texture>
+				<visible>Control.IsVisible(545)</visible>
+		</control>						
+		<control type="group">
+			<posy>-5</posy>
+			<control type="image">
+				<posx>-5</posx>
+				<posy>120r</posy>
+				<width>1280</width>
+				<height>159</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>Home/menuback.png</texture>
+				<colordiffuse>FFFFFFFF</colordiffuse>	
+				<visible>Control.IsVisible(545)</visible>
+				<animation effect="slide" start="0,300" end="0,0" time="750" delay="0">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,300" time="750" delay="0">WindowClose</animation>
+				<animation effect="slide" start="0,0" end="0,500" time="650" delay="0" reversible="false" condition="Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="700" delay="150" reversible="false" condition="Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="slide" start="0,350" end="0,0" time="550" delay="0" reversible="false" condition="!Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" delay="100" reversible="false" condition="!Window.IsVisible(2003)">Conditional</animation>			
+			</control>
+			<!--
+			<control type="image">
+				<posx>0</posx>
+				<posy>195r</posy>
+				<width>1280</width>
+				<height>195</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>shelf/picshelf.png</texture>
+				<visible>Control.IsVisible(545)</visible>
+				<animation effect="slide" start="0,300" end="0,0" time="750" delay="0">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,300" time="750" delay="0">WindowClose</animation>
+				<animation effect="slide" start="0,0" end="0,500" time="650" delay="0" reversible="false" condition="Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="700" delay="150" reversible="false" condition="Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="slide" start="0,350" end="0,0" time="550" delay="0" reversible="false" condition="!Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" delay="100" reversible="false" condition="!Window.IsVisible(2003)">Conditional</animation>	
+			</control>
+
+			<control type="image">
+				<posx>0</posx>
+				<posy>195r</posy>
+				<width>1280</width>
+				<height>195</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>shelf/picshelf.png</texture>
+				<visible>Control.IsVisible(545)</visible>
+				<animation effect="slide" start="0,300" end="0,0" time="750" delay="0">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,300" time="750" delay="0">WindowClose</animation>
+				<animation effect="slide" start="0,0" end="0,500" time="650" delay="0" reversible="false" condition="Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="700" delay="150" reversible="false" condition="Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="slide" start="0,350" end="0,0" time="550" delay="0" reversible="false" condition="!Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" delay="100" reversible="false" condition="!Window.IsVisible(2003)">Conditional</animation>	
+			</control>
+			-->			
+			<control type="label">
+				<posx>183</posx>
+				<posy>50r</posy>
+				<width>914</width>
+				<height>35</height>
+				<font>movietitle3</font>
+				<textcolor>FFC0C0C0</textcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.IsVisible(545)</visible>
+			</control>		
+						
+			<control type="wraplist" id="545">
+			<visible>!Container.Content(Episodes)</visible>
+				<posx>-160</posx>
+				<posy>380</posy>
+				<width>1600</width>
+				<height>500</height>
+				<onleft>545</onleft>
+				<onright>545</onright>
+				<onup>300</onup>
+				<ondown>547</ondown>
+				<viewtype label="PosterShelf">bigwrap</viewtype>
+				<pagecontrol>547</pagecontrol>
+				<scrolltime>225</scrolltime>
+				<focusposition>5</focusposition>
+				<orientation>horizontal</orientation>
+				<preloaditems>3</preloaditems>
+				<animation effect="slide" start="0,900" end="0,0" time="1300" delay="150" tween="back" easing="inout">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,300" time="550" delay="0">WindowClose</animation>
+				<animation effect="slide" start="0,0" end="0,500" time="650" delay="0" reversible="false" condition="Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="700" delay="150" reversible="false" condition="Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="slide" start="0,350" end="0,0" time="550" delay="0" reversible="false" condition="!Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" delay="100" reversible="false" condition="!Window.IsVisible(2003)">Conditional</animation>
+				<animation effect="zoom" start="100" end="85" time="400" center="auto" tween="circle" easing="out" condition="Control.IsVisible(547)">Conditional</animation>	
+			<include>ContextFade2</include>
+				<itemlayout height="240" width="150">
+					<control type="image">
+						<posx>2</posx>
+						<posy>244</posy>
+						<width>110</width>
+						<height>110</height>
+						<bordersize>3</bordersize>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true" flipy="true" diffuse="poster/posterreflectdiffuse.png">$INFO[ListItem.Icon]</texture>
+						<colordiffuse>bfffffff</colordiffuse>
+					</control>
+
+					<control type="image">
+						<posx>-8</posx>
+						<posy>238</posy>
+						<width>130</width>
+						<height>15</height>
+						<bordersize>3</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<texture>shelf/postershadow.png</texture>
+						<colordiffuse>9fffffff</colordiffuse>
+					</control>	
+			
+					<control type="image">
+						<posx>2</posx>
+						<posy>138</posy>
+						<width>110</width>
+						<height>110</height>
+						<bordersize>3</bordersize>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true" diffuse="infowrap/albumdiffuse.png">$INFO[ListItem.Icon]</texture>
+					</control>
+
+				</itemlayout>
+				
+				<focusedlayout height="240" width="150">
+					<control type="image">
+						<posx>0</posx>
+						<posy>264</posy>
+						<width>110</width>
+						<height>110</height>
+						<bordersize>2</bordersize>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true" flipy="true" diffuse="poster/posterreflectdiffuse.png">$INFO[ListItem.Icon]</texture>
+						<animation reversible="false" effect="zoom" start="100" end="120" center="auto" time="250">focus</animation>
+						<colordiffuse>a9ffffff</colordiffuse>	
+					</control>
+
+					<control type="image">
+						<posx>-8</posx>
+						<posy>248</posy>
+						<width>130</width>
+						<height>15</height>
+						<bordersize>3</bordersize>
+						<aspectratio>stretch</aspectratio>
+						<texture>shelf/postershadow.png</texture>
+						<colordiffuse>9fffffff</colordiffuse>
+						<animation reversible="false" effect="zoom" start="100" end="120" center="auto" time="250">focus</animation>
+					</control>
+					
+					<control type="image">
+						<posx>0</posx>
+						<posy>135</posy>
+						<width>110</width>
+						<height>110</height>
+						<bordersize>2</bordersize>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true" diffuse="infowrap/albumdiffuse.png">$INFO[ListItem.Icon]</texture>
+						<animation reversible="false" effect="zoom" start="100" end="120" center="auto" time="250">focus</animation>
+					</control>
+				</focusedlayout>
+			</control>
+		<control type="scrollbar" id="547">
+			<posx>0</posx>
+			<posy>65r</posy>
+			<width>1280</width>
+			<height>2</height>
+			<visible allowhiddenfocus="true">Control.IsVisible(545) + Control.HasFocus(547)</visible>
+			<texturesliderbackground>scroll/scrollbg.png</texturesliderbackground>
+			<textureslidernibfocus>scroll/scrollnibh2.png</textureslidernibfocus>
+			<onup>545</onup>
+			<ondown>545</ondown>
+			<showonepage>true</showonepage>
+			<orientation>horizontal</orientation>
+			<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(547)">Conditional</animation>
+		</control>
+		</control>
+	</include>
+	
+</includes>

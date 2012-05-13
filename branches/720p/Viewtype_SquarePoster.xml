@@ -1,0 +1,274 @@
+<includes>
+
+	<!--Poster Group-->
+	<include name="MusicPoster">
+
+		<control type="group">
+			<include>MusicInfoOpenClose</include>	
+			<include>ContextFade</include>
+			<include>Keyboard</include>	
+			<visible>!Window.IsVisible(1122)</visible>
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="450" delay="0" />
+			<effect type="zoom" start="155" end="100" time="450" center="auto" delay="0" />
+			<effect type="slide" start="0,75" end="0,0" time="450" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="350" delay="0" />
+			<effect type="zoom" start="100" end="155" time="400" center="auto" delay="0" />
+			<effect type="slide" start="0,0" end="0,75" time="550" />
+		</animation>
+			<posx>0</posx>
+			<posy>80</posy>			
+			<control type="wraplist" id="523">
+				<visible>!Container.Content(Songs)</visible>
+				<visible>!Skin.HasSetting(HideCoverWrap)</visible>
+				<posx>-252</posx>
+				<posy>0</posy>
+				<width>1600</width>
+				<height>560</height>
+				<onleft>57</onleft>
+				<onright>57</onright>
+				<onup>300</onup>
+				<ondown>589</ondown>
+				<viewtype label="CoverWrap">bigwrap</viewtype>
+				<pagecontrol>589</pagecontrol>
+				<scrolltime>250</scrolltime>
+				<focusposition>3</focusposition>
+				<orientation>horizontal</orientation>
+				<preloaditems>6</preloaditems>
+				<itemlayout height="310" width="255">
+				
+					<control type="image">
+						<posx>2</posx>
+						<posy>342</posy>
+						<width>250</width>
+						<height>250</height>
+						<bordersize>2</bordersize>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture border="0,0,0,0" background="true" flipy="true" diffuse="poster/posterreflectdiffuse.png" fallback="noalbum.png">$INFO[ListItem.Thumb]</texture>
+						<colordiffuse>92ffffff</colordiffuse>
+					</control>
+				
+					<control type="image">
+						<posx>2</posx>
+						<posy>95</posy>
+						<width>250</width>
+						<height>250</height>
+						<bordersize>2</bordersize>
+						<visible>!Container.Content(genres)</visible>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true" diffuse="poster/squarediffuse.png" fallback="noalbum.png">$INFO[ListItem.Thumb]</texture>
+					</control>
+					
+					<control type="image">
+						<posx>2</posx>
+						<posy>95</posy>
+						<width>250</width>
+						<height>250</height>
+						<bordersize>2</bordersize>
+						<visible>Container.Content(genres)</visible>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true" diffuse="poster/squarediffuse.png" fallback="special://skin/extras/genre/music/icon/default.jpg">$INFO[ListItem.Label,special://skin/extras/genre/music/icon/,.jpg]</texture>
+					</control>
+
+				</itemlayout>
+				<focusedlayout height="310" width="255">
+
+					<control type="image">
+						<posx>-50</posx>
+						<posy>60</posy>
+						<width>350</width>
+						<height>350</height>
+						<visible>!Container.Content(genres)</visible>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true" diffuse="poster/squarediffuse.png" fallback="noalbum.png">$INFO[ListItem.Thumb]</texture>
+						<animation reversible="false" effect="zoom" start="10,74,250,250" end="-40,30,350,350" time="200">focus</animation>
+						<animation reversible="false" effect="zoom" end="10,74,250,250" start="-40,30,350,350" time="200">unfocus</animation>
+					</control>
+					<control type="image">
+						<posx>-50</posx>
+						<posy>60</posy>
+						<width>350</width>
+						<height>350</height>
+						<visible>Container.Content(genres)</visible>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true" diffuse="poster/squarediffuse.png" fallback="special://skin/extras/genre/music/icon/default.jpg">$INFO[ListItem.Label,special://skin/extras/genre/music/icon/,.jpg]</texture>
+						<animation reversible="false" effect="zoom" start="10,74,250,250" end="-40,30,350,350" time="200">focus</animation>
+						<animation reversible="false" effect="zoom" end="10,74,250,250" start="-40,30,350,350" time="200">unfocus</animation>
+					</control>
+					<control type="image">
+						<posx>-99</posx>
+						<posy>10</posy>
+						<width>448</width>
+						<height>448</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>poster/squareborder.png</texture>
+						<visible>!Control.HasFocus(300)</visible>
+						<visible>!IsEmpty(ListItem.Thumb) | Container.Content(Genres)</visible>
+						<animation type="focus">
+							<effect type="fade" start="50" end="100" time="150" />
+							<effect type="zoom" start="10,74,250,250" end="-86,-28,448,448" time="190" />
+						</animation>
+						<animation reversible="false" effect="fade" start="100" end="0" time="0">unfocus</animation>
+					</control>
+					
+				</focusedlayout>
+			</control>
+
+<control type="group">
+	<posx>-3</posx>
+	<visible>Control.IsVisible(523) + [Container.Content(Artists) | Container.Content(Albums) | Container.Content(Genres) | Window.IsVisible(1) | SubString(Container.Folderpath,plugin://plugin.program.advanced.launcher) | !IsEmpty(ListItem.foldername)]</visible>
+			<control type="label">
+				<posx>183</posx>
+				<posy>435</posy>
+				<width>914</width>
+				<height>35</height>
+				<font>movietitle3</font>
+				<textcolor>movietitleb</textcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+			</control>
+			<!-- ADVANCED LAUNCHER -->
+			<control type="textbox">
+				<posx>440</posx>
+				<posy>470</posy>
+				<width>400</width>
+				<height>68</height>
+				<font>griddetails</font>
+				<textcolor>movietitleb2</textcolor>
+				<align>center</align>
+				<label>$INFO[ListItem.Plot]</label>
+				<visible>SubString(Container.Folderpath,plugin://plugin.program.advanced.launcher)</visible>
+			</control>
+			<control type="image">
+				<posx>601</posx>
+				<posy>544</posy>
+				<width>80</width>
+				<height>20</height>
+				<aspectratio>scale</aspectratio>
+				<colordiffuse>movietitleb2</colordiffuse>
+				<texture>$INFO[ListItem.Studio,special://skin/extras/gamesystems/,.png]</texture>
+				<visible>SubString(Container.Folderpath,plugin://plugin.program.advanced.launcher)</visible>
+			</control>
+			<!-- END ADVANCED LAUNCHER -->
+			<control type="label">
+				<posx>260</posx>
+				<posy>486</posy>
+				<width>762</width>
+				<height>35</height>
+				<font>aired</font>
+				<scrollsuffix>/</scrollsuffix>
+				<textcolor>movietitleb2</textcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<scrollspeed>40</scrollspeed>
+				<label>[UPPERCASE]$INFO[ListItem.Property(Artist_Style)][/UPPERCASE]</label>
+			</control>
+			<control type="grouplist">
+				<posx>8</posx>
+				<posy>465</posy>
+				<align>center</align>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="10" max="400">auto</width>
+					<height>35</height>
+					<font>aired</font>
+					<textcolor>movietitleb2</textcolor>
+					<scroll>true</scroll>
+					<scrollspeed>40</scrollspeed>
+					<label>[UPPERCASE][COLOR=white]FORMED: [/COLOR]$INFO[ListItem.Property(Artist_Formed)] [/UPPERCASE]</label>
+					<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
+				</control>
+				<control type="label">
+					<width min="10" max="600">auto</width>
+					<height>35</height>
+					<font>aired</font>
+					<textcolor>movietitleb2</textcolor>
+					<scroll>true</scroll>
+					<scrollspeed>40</scrollspeed>
+					<label>[UPPERCASE][COLOR=white]BORN: [/COLOR]$INFO[ListItem.Property(Artist_Born)] [/UPPERCASE]</label>
+					<visible>!IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Formed))</visible>
+				</control>
+				<control type="label">
+					<width min="10" max="400">auto</width>
+					<height>35</height>
+					<font>aired</font>
+					<textcolor>movietitleb2</textcolor>
+					<scroll>true</scroll>
+					<scrollspeed>40</scrollspeed>
+					<label>[UPPERCASE][COLOR=white]YEARS ACTIVE: [/COLOR]$INFO[ListItem.Property(Artist_YearsActive)][/UPPERCASE]</label>
+					<visible>!IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
+				</control>
+				<control type="label">
+					<width min="10" max="400">auto</width>
+					<height>35</height>
+					<font>aired</font>
+					<textcolor>movietitleb2</textcolor>
+					<scroll>true</scroll>
+					<scrollspeed>40</scrollspeed>
+					<label>[UPPERCASE][COLOR=white]DIED: [/COLOR]$INFO[ListItem.Property(Artist_Died)][/UPPERCASE]</label>
+					<visible>!IsEmpty(ListItem.Property(Artist_Died))</visible>
+				</control>
+				<!-- FALLBACK -->
+				<control type="label">
+					<width min="10" max="400">auto</width>
+					<height>35</height>
+					<font>aired</font>
+					<textcolor>movietitleb2</textcolor>
+					<scroll>true</scroll>
+					<scrollspeed>40</scrollspeed>
+					<label>[UPPERCASE][COLOR=white]No additional info[/COLOR][/UPPERCASE]</label>
+					<visible>IsEmpty(ListItem.Property(Artist_Formed)) + IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_YearsActive)) + Container.Content(Artists)</visible>
+				</control>
+			</control>
+			<control type="label">
+				<posx>183</posx>
+				<posy>465</posy>
+				<width>914</width>
+				<height>35</height>
+				<font>aired</font>
+				<textcolor>movietitleb2</textcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Artist,, • ]$INFO[ListItem.Year][/UPPERCASE]</label>
+				<visible>Container.Content(Albums)</visible>
+			</control>	
+                <control type="label" id="21">
+                <description>Info</description>
+                <posx>492</posx>
+                <posy>580</posy>
+                <width>300</width>
+				<font>infotab</font>
+                <label>press down twice for info</label>
+                <textcolor>HomeMenuGrey</textcolor>
+                <align>center</align>
+				<visible>Control.IsVisible(523) + !Control.HasFocus(589)</visible>
+				<visible>substring(container.folderpath,plugin://plugin.program.advanced.launcher)</visible>
+				<visible>!Control.HasFocus(300)</visible>
+				<visible>!ListItem.IsFolder</visible>
+                <animation effect="fade" start="0" end="100" time="600" delay="1500">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="600">Hidden</animation>
+            </control>			
+            </control>
+		<control type="scrollbar" id="589">
+			<posx>0</posx>
+			<posy>568</posy>
+			<width>1280</width>
+			<height>6</height>
+			<visible allowhiddenfocus="true">Control.IsVisible(523) + Control.HasFocus(589)</visible>
+			<texturesliderbackground>white2.png</texturesliderbackground>
+			<textureslidernibfocus>white3.png</textureslidernibfocus>
+			<onup>523</onup>
+			<ondown condition="substring(container.folderpath,plugin://plugin.program.advanced.launcher)">ActivateWindow(1122)</ondown>
+			<showonepage>true</showonepage>
+			<orientation>horizontal</orientation>
+			<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(589)">Conditional</animation>
+		</control>
+		</control>
+	</include>
+</includes>
